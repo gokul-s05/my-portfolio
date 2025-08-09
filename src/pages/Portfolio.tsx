@@ -11,6 +11,7 @@ import emailjs from '@emailjs/browser';
 import { initEmailJS, EMAILJS_CONFIG } from '@/lib/emailjs';
 
 const Portfolio = () => {
+  const getPublicAssetUrl = (relativePath: string) => `${import.meta.env.BASE_URL}${relativePath}`;
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     from_name: '',
@@ -163,21 +164,21 @@ const Portfolio = () => {
   };
 
   const skills = [
-    { name: 'Python', icon: '/portfolio/images/python.png', level: 85 },
-    { name: 'Java', icon: '/portfolio/images/java.png', level: 69 },
-    { name: 'Machine Learning', icon: '/portfolio/images/machine.png', level: 75 },
-    { name: 'HTML', icon: '/portfolio/images/html.png', level: 95 },
-    { name: 'CSS', icon: '/portfolio/images/css.png', level: 92 },
-    { name: 'Android Studio', icon: '/portfolio/images/android.png', level: 80 },
-    { name: 'C', icon: '/portfolio/images/c.png', level: 70 },
-    { name: 'Kali Linux', icon: '/portfolio/images/kali.png', level: 90 }
+    { name: 'Python', icon: getPublicAssetUrl('images/python.png'), level: 85 },
+    { name: 'Java', icon: getPublicAssetUrl('images/java.png'), level: 69 },
+    { name: 'Machine Learning', icon: getPublicAssetUrl('images/machine.png'), level: 75 },
+    { name: 'HTML', icon: getPublicAssetUrl('images/html.png'), level: 95 },
+    { name: 'CSS', icon: getPublicAssetUrl('images/css.png'), level: 92 },
+    { name: 'Android Studio', icon: getPublicAssetUrl('images/android.png'), level: 80 },
+    { name: 'C', icon: getPublicAssetUrl('images/c.png'), level: 70 },
+    { name: 'Kali Linux', icon: getPublicAssetUrl('images/kali.png'), level: 90 }
   ];
 
   const projects = [
     {
       title: 'Football Analytics Platform⚽',
       description: 'Built an AI platform leveraging ML and real-time data to analyze and predict football team performance.',
-      image: '/portfolio/images/football.jpg',
+      image: getPublicAssetUrl('images/football.jpg'),
       tech: ['Python', 'Streamlit', 'OpenCV', 'YOLOv8'],
       github: 'https://github.com/gokul-s05/football_analysis.git',
       demo: 'unavailable'
@@ -185,7 +186,7 @@ const Portfolio = () => {
     {
       title: 'Virtual Mouse🖱️',
       description: 'Created a gesture-controlled virtual mouse using OpenCV for touchless cursor control via real-time hand tracking.',
-      image: '/portfolio/images/mouse.jpg',
+      image: getPublicAssetUrl('images/mouse.jpg'),
       tech: ['OpenCV', 'MediaPipe', 'Python','PyAutoGUI'],
       github: 'https://github.com/gokul-s05/virtual_mouse.git',
       demo: 'unavailable'
@@ -193,7 +194,7 @@ const Portfolio = () => {
     {
       title: 'Profile 360👤',
       description: 'Built an Android app in Java for managing member profiles with image support and intuitive user interface.',
-      image: '/portfolio/images/web.webp',
+      image: getPublicAssetUrl('images/web.webp'),
       tech: ['Java', 'XML', 'Java for API','Firebase'],
       github: 'https://github.com/gokul-s05/profile360.git',
       demo: 'unavailable'
@@ -201,7 +202,7 @@ const Portfolio = () => {
     {
       title: 'Cyber Security Tools🔒',
       description: 'Developed cybersecurity tools including Caesar cipher, pixel-based image encryption, keylogger, and password strength checker for enhanced data protection.',
-      image: '/portfolio/images/tools.webp',
+      image: getPublicAssetUrl('images/tools.webp'),
       tech: ['Python', 'Git','Tkinter'],
       github: 'https://github.com/gokul-s05/Intern_Project.git',
       demo: 'https://cyber-security-tools.streamlit.app/'
@@ -209,7 +210,7 @@ const Portfolio = () => {
     {
       title: 'Portfolio Website🌐',
       description: 'Modern portfolio website with smooth animations and responsive design.',
-      image: '/portfolio/images/portfolio.jpg',
+      image: getPublicAssetUrl('images/portfolio.jpg'),
       tech: ['React', 'Framer Motion', 'Tailwind CSS'],
       github: 'https://github.com/gokul-s05/portfolio.git',
       demo: 'https://gokul-s05.github.io/portfolio/'
@@ -217,7 +218,7 @@ const Portfolio = () => {
     {
       title: 'Employee Management System🛄',
       description: 'A Django-based Employee Management System with PostgreSQL, Bootstrap 5 UI, and Crispy Forms for smooth CRUD operations.',
-      image: '/portfolio/images/employee.png',
+      image: getPublicAssetUrl('images/employee.png'),
       tech: ['Django', 'PostgreSQL', 'Bootstrap', 'Git'],
       github: 'https://github.com/gokul-s05/employee-management-system.git',
       demo: 'unavailable'
@@ -401,7 +402,7 @@ const Portfolio = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img
-                    src="/portfolio/images/gokul.jpg"
+                    src={getPublicAssetUrl('images/gokul.jpg')}
                     alt="Gokul - Profile"
                     className="w-full h-full rounded-full object-cover"
                   />
@@ -647,7 +648,7 @@ const Portfolio = () => {
               My professional journey and qualifications
             </p>
             <Button asChild size="lg" className="group">
-              <a href="/portfolio/images/Gokul's Resume.pdf" download>
+              <a href={getPublicAssetUrl("images/Gokul's Resume.pdf")} download>
                 <Download size={20} className="mr-2 group-hover:animate-bounce" />
                 Download PDF
               </a>
