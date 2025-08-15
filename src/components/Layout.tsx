@@ -2,8 +2,6 @@
 import { motion } from 'framer-motion';
 import Navigation from './Navigation';
 import Footer from './Footer';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -24,8 +22,6 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </motion.main>
       <Footer />
-      <Analytics />
-      <SpeedInsights />
     </div>
   );
 };
