@@ -895,7 +895,7 @@ const Portfolio = () => {
                       <div className="mt-4">
                         <Button asChild size="sm" variant="outline">
                           <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
-                            {(cert.issuer === 'Geek for Geeks' || cert.issuer === 'Rinex' || cert.issuer === 'Deloitte / Forage' || cert.issuer === 'AWS / Forage' || cert.issuer === 'TCS / Forage' || cert.issuer === 'SkillCraft Technologies' || cert.issuer === 'Infosys Springboard') ? 'View Certificate' : 'View Credential'}
+                            {(cert.issuer === 'Geek for Geeks' || cert.issuer === 'Rinex' || cert.issuer === 'Deloitte / Forage' || cert.issuer === 'AWS / Forage' || cert.issuer === 'TCS / Forage' || cert.issuer === 'Infosys Springboard') ? 'View Certificate' : 'View Credential'}
                           </a>
                         </Button>
                       </div>
