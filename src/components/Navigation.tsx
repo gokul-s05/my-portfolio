@@ -15,11 +15,12 @@ const Navigation = () => {
     { name: 'Skills', id: 'skills' },
     { name: 'Projects', id: 'projects' },
     { name: 'Resume', id: 'resume' },
+    { name: 'Certifications', id: 'certificates' },
     { name: 'Contact', id: 'contact' },
   ];
 
   useEffect(() => {
-    const sectionIds = ['home', 'about', 'skills', 'projects', 'resume', 'contact'];
+    const sectionIds = ['home', 'about', 'skills', 'projects', 'resume', 'certificates', 'contact'];
     const handleScroll = () => {
       let currentSection = sectionIds[0];
       for (const id of sectionIds) {

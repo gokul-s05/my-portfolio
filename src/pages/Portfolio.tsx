@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Download, Calendar, MapPin, Github, Mail, Phone, Send } from 'lucide-react';
+import { ArrowDown, Download, Calendar, MapPin, Github, Mail, Phone, Send, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -13,6 +13,9 @@ import { initEmailJS, EMAILJS_CONFIG } from '@/lib/emailjs';
 const Portfolio = () => {
   const getPublicAssetUrl = (relativePath: string) => `${import.meta.env.BASE_URL}${relativePath}`;
   const form = useRef<HTMLFormElement>(null);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [showAllCertificates, setShowAllCertificates] = useState(false);
   const [formData, setFormData] = useState({
     from_name: '',
     from_email: '',
@@ -276,6 +279,80 @@ const Portfolio = () => {
     }
   ];
 
+  const certificates = [
+    {
+      title: 'Cyber Job Simulation',
+      issuer: 'Deloitte / Forage',
+      date: 'Sep 2025',
+      image: getPublicAssetUrl('images/Deloitte.png'),
+      credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_sQyFDqhToW3FagtWh_1757235729943_completion_certificate.pdf'
+    },
+    {
+      title: 'AWS Cloud Architecting',
+      issuer: 'AWS Academy',
+      date: 'Aug 2025',
+      image: getPublicAssetUrl('images/AWS.png'),
+      credentialUrl: 'https://www.credly.com/badges/460bbe95-f1db-4a9d-b8eb-1a0ffa95466a/public_url'
+    },
+    {
+      title: 'Solutions Architecture Job Simulation',
+      issuer: 'AWS / Forage',
+      date: 'Sep 2025',
+      image: getPublicAssetUrl('images/AWS forage.png'),
+      credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_sQyFDqhToW3FagtWh_1757241032270_completion_certificate.pdf'
+    },
+    {
+      title: 'Cybersecurity Analyst Job Simulation',
+      issuer: 'TCS / Forage',
+      date: 'Sep 2025',
+      image: getPublicAssetUrl('images/Tata cyber.png'),
+      credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_sQyFDqhToW3FagtWh_1757238290185_completion_certificate.pdf'
+    },
+    {
+      title: 'Cybersecurity Intern',
+      issuer: 'SkillCraft Technologies',
+      date: 'June - July 2025',
+      image: getPublicAssetUrl('images/Skillcraft.png'),
+      credentialUrl: 'https://skillcrafttech.com/verify?id=SCT/JUN25/6339'
+    },
+    {
+      title: 'Cyber security with Ethical Hacking Intern',
+      issuer: 'Rinex',
+      date: 'Sept - Oct 2023',
+      image: getPublicAssetUrl('images/rinex.png'),
+      credentialUrl: 'https://drive.google.com/file/d/1n15ekL4GB29ouMPLOuatSH6w3MrGprY7/view?usp=sharing'
+    },
+    {
+      title: 'Complete IP Addressing and Subnetting Course',
+      issuer: 'Geek for Geeks',
+      date: 'June - July 2025',
+      image: getPublicAssetUrl('images/geek for geeks.png'),
+      credentialUrl: 'https://media.geeksforgeeks.org/courses/certificates/f6dfe1b8d746d1da5f84027c74d4afcc.pdf'
+    },
+    {
+      title: 'Cyber Security Foundation Certication',
+      issuer: 'Infosys Springboard',
+      date: 'Aug 2025',
+      image: getPublicAssetUrl('images/infosys.png'),
+      credentialUrl: 'https://drive.google.com/file/d/1I08Aon7lIdr8gWfHtqELovQmK3yNtxZA/view?usp=drive_link'
+    },
+  ];
+
+  const handleToggleCertificates = () => {
+    setShowAllCertificates((prev) => {
+      const next = !prev;
+      if (!next) {
+        requestAnimationFrame(() => {
+          const el = document.getElementById('certificates');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
+      return next;
+    });
+  };
+
   const contactInfo = [
     {
       icon: Mail,
@@ -381,6 +458,10 @@ const Portfolio = () => {
           </motion.div>
         </div>
       </section>
+
+      
+
+      
 
       {/* About Section */}
       <section id="about" className="min-h-screen py-24">
@@ -762,6 +843,103 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Certificates Section */}
+      <section id="certificates" className="min-h-screen py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl sm:text-5xl font-bold mb-6 gradient-text">
+              Certifications
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Verified certificates and courses I've completed
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {(showAllCertificates ? certificates : certificates.slice(0, 3)).map((cert, index) => (
+              <motion.div
+                key={cert.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group"
+              >
+                <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300">
+                  <div className="relative">
+                    <motion.img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-56 sm:h-64 object-contain bg-secondary/20 p-6 cursor-zoom-in"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.25 }}
+                      onClick={() => {
+                        setLightboxImage(cert.image);
+                        setIsLightboxOpen(true);
+                      }}
+                    />
+                  </div>
+                  <CardContent className="p-6">
+                    <h3 className="text-lg font-semibold">{cert.title}</h3>
+                    <p className="text-sm text-muted-foreground mt-1">{cert.issuer}</p>
+                    <p className="text-xs text-muted-foreground mt-1 flex items-center">
+                      <Calendar size={14} className="mr-1" />
+                      {cert.date}
+                    </p>
+                    {cert.credentialUrl && (
+                      <div className="mt-4">
+                        <Button asChild size="sm" variant="outline">
+                          <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
+                            {(cert.issuer === 'Geek for Geeks' || cert.issuer === 'Rinex' || cert.issuer === 'Deloitte / Forage' || cert.issuer === 'AWS / Forage' || cert.issuer === 'TCS / Forage' || cert.issuer === 'SkillCraft Technologies' || cert.issuer === 'Infosys Springboard') ? 'View Certificate' : 'View Credential'}
+                          </a>
+                        </Button>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+          <div className="flex justify-center mt-8">
+            <Button variant="outline" onClick={handleToggleCertificates}>
+              {showAllCertificates ? 'Show less' : 'View all certificates'}
+            </Button>
+          </div>
+        </div>
+
+        {isLightboxOpen && lightboxImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4"
+            onClick={() => setIsLightboxOpen(false)}
+          >
+            <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+              <button
+                aria-label="Close"
+                className="absolute -top-3 -right-3 sm:top-0 sm:right-0 translate-y-[-100%] sm:translate-y-0 bg-background/90 border border-border text-foreground rounded-full p-2 hover:bg-background z-[61]"
+                onClick={() => setIsLightboxOpen(false)}
+              >
+                <X size={18} />
+              </button>
+              <motion.img
+                initial={{ scale: 0.95 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.2 }}
+                src={lightboxImage}
+                alt="Certificate enlarged"
+                className="w-full max-h-[80vh] object-contain rounded-md shadow-xl"
+              />
+            </div>
+          </motion.div>
+        )}
+      </section>
       {/* Contact Section */}
       <section id="contact" className="py-16 bg-background/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
