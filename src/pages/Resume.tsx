@@ -41,6 +41,17 @@ const Resume = () => {
         'Created a clean, responsive interface by integrating Bootstrap 5 with Django Crispy Forms, applying modern UI/UX practices for improved form handling and user experience.',
         'Developed a well‑structured architecture combining frontend design, backend logic, and database management, providing a solid template for similar management systems.'
       ]
+    },
+    {
+      title: 'Cyber Security & Ethical Hacking Intern',
+      company: 'Rinex',
+      period: '1 month',
+      location: 'Remote',
+      achievements: [
+        'Performed comprehensive Vulnerability Assessment on systems and applications, identifying security loopholes and suggesting remediation strategies.',
+        'Executed Penetration Testing simulations to analyze system defenses, detect exploits, and strengthen overall security posture.',
+        'Applied Network Security and Ethical Hacking techniques to monitor traffic, prevent unauthorized access, and ensure data protection in real-world scenarios.'
+      ]
     }
     
   ];
