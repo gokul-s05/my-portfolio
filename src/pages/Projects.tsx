@@ -4,7 +4,15 @@ import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
 
 const Projects = () => {
-  const projects = [
+  const projects: {
+    title: string;
+    description: string;
+    image: string;
+    tech: string[];
+    github: string;
+    demo?: string;
+    isCurrentSite?: boolean;
+  }[] = [
     {
       title: 'Autoscaling Web Application on AWS EKS 🚀',
       description: 'Deployed a containerized web application on a multi-node Kubernetes cluster with Terraform, automated CI/CD pipeline, and horizontal pod autoscaling on AWS.',
@@ -57,8 +65,9 @@ const Projects = () => {
       description: 'Modern portfolio website with smooth animations and responsive design.',
       image: 'src/assets/portfolio.jpg',
       tech: ['React', 'Framer Motion', 'Tailwind CSS'],
-      github: 'https://github.com/gokul-s05/portfolio.git',
-      demo: 'https://gokul-s05.github.io/portfolio/'
+      github: 'https://github.com/gokul-s05/my-portfolio',
+      demo: 'https://gokul-s05.github.io/portfolio/',
+      isCurrentSite: true
     },
     {
       title: 'Employee Management System🛄',
@@ -127,19 +136,25 @@ const Projects = () => {
                     ))}
                   </div>
                   
-                  <div className="flex gap-2">
-                    <Button asChild size="sm" variant="outline" className="flex-1">
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button asChild size="sm" variant="outline" className="w-full sm:flex-1">
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github size={16} className="mr-2" />
                         Code
                       </a>
                     </Button>
                     {project.demo && (
-                      <Button asChild size="sm" className="flex-1">
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                          Live Demo
-                        </a>
-                      </Button>
+                      project.isCurrentSite ? (
+                        <Button size="sm" className="w-full sm:flex-1 text-xs" disabled>
+                          You are currently viewing this project
+                        </Button>
+                      ) : (
+                        <Button asChild size="sm" className="flex-1">
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                            Live Demo
+                          </a>
+                        </Button>
+                      )
                     )}
                   </div>
                 </CardContent>

@@ -233,8 +233,9 @@ const Portfolio = () => {
       description: 'Modern portfolio website with smooth animations and responsive design.',
       image: getPublicAssetUrl('images/portfolio.jpg'),
       tech: ['React', 'Framer Motion', 'Tailwind CSS'],
-      github: 'https://github.com/gokul-s05/portfolio.git',
-      demo: 'https://gokul-s05.github.io/portfolio/'
+      github: 'https://github.com/gokul-s05/my-portfolio',
+      demo: 'https://gokul-s05.github.io/portfolio/',
+      isCurrentSite: true
     },
     {
       title: 'Employee Management System🛄',
@@ -719,8 +720,8 @@ const Portfolio = () => {
     const y = e.clientY - rect.top;
     const cx = rect.width / 2;
     const cy = rect.height / 2;
-    const rotateX = ((y - cy) / cy) * -10;
-    const rotateY = ((x - cx) / cx) * 10;
+    const rotateX = ((y - cy) / cy) * -7;
+    const rotateY = ((x - cx) / cx) * 7;
     const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
     const spotlight = e.currentTarget.querySelector('.project-spotlight') as HTMLElement;
     if (card) {
@@ -748,8 +749,8 @@ const Portfolio = () => {
     const y = touch.clientY - rect.top;
     const cx = rect.width / 2;
     const cy = rect.height / 2;
-    const rotateX = ((y - cy) / cy) * -10;
-    const rotateY = ((x - cx) / cx) * 10;
+    const rotateX = ((y - cy) / cy) * -7;
+    const rotateY = ((x - cx) / cx) * 7;
     const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
     if (card) {
       card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
@@ -800,27 +801,33 @@ const Portfolio = () => {
                       ))}
                     </div>
                     
-                    <div className="flex gap-2">
-                      <Button asChild size="sm" variant="outline" className="flex-1">
+                    <div className="flex flex-col sm:flex-row gap-2">
+                    <Button asChild size="sm" variant="outline" className="w-full sm:flex-1">
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
                           <Github size={16} className="mr-2" />
                           Code
                         </a>
                       </Button>
                       {project.demo && (
-                        <Button 
-                          size="sm" 
-                          className="flex-1" 
-                          disabled={project.demo === 'unavailable'}
-                        >
-                          {project.demo === 'unavailable' ? (
-                            <span>Live Demo (Unavailable)</span>
-                          ) : (
-                            <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                              Live Demo
-                            </a>
-                          )}
-                        </Button>
+                        project.isCurrentSite ? (
+                          <Button size="sm" className="w-full sm:flex-1 text-xs" disabled>
+                            You are currently viewing this project
+                          </Button>
+                        ) : (
+                          <Button
+                            size="sm"
+                            className="w-full sm:flex-1"
+                            disabled={project.demo === 'unavailable'}
+                          >
+                            {project.demo === 'unavailable' ? (
+                              <span>Live Demo (Unavailable)</span>
+                            ) : (
+                              <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                                Live Demo
+                              </a>
+                            )}
+                          </Button>
+                        )
                       )}
                     </div>
                   </CardContent>
