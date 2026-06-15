@@ -5,6 +5,22 @@ import { Github } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
+    {
+      title: 'Autoscaling Web Application on AWS EKS 🚀',
+      description: 'Deployed a containerized web application on a multi-node Kubernetes cluster with Terraform, automated CI/CD pipeline, and horizontal pod autoscaling on AWS.',
+      image: 'src/assets/autoscaling.jpg',
+      tech: ['Terraform','Kubernetes','Docker','AWS EKS','GitHub Actions','AWS S3'],
+      github: 'https://github.com/gokul-s05/eks-devops-project',
+      
+    },
+    {
+      title: 'AWS EKS CI/CD Platform ⚙️',
+      description: 'Built a production-grade EKS platform with fully automated CI/CD pipeline for Docker image builds, ECR pushes, and zero-downtime Kubernetes deployments with real-time monitoring.',
+      image: 'src/assets/eks.png',
+      tech: ['Grafana', 'Prometheus', 'Helm', 'Docker','AWS ECR','Terraform'],
+      github: 'https://github.com/gokul-s05/eks-cicd-platform',
+      
+    },
     {title: 'Football Analytics Platform⚽',
       description: 'Built an AI platform leveraging ML and real-time data to analyze and predict football team performance.',
       image: 'src/assets/football.jpg',

@@ -21,6 +21,17 @@ const Resume = () => {
 
   const experience = [
     {
+      title: 'DevOps Engineer Intern',
+      company: 'Besant Technologies',
+      period: '6 month',
+      location: 'Bangalore, Karnataka',
+      achievements: [
+        'Gained hands-on experience with AWS core services including cloud infrastructure setup, deployment, and management.',
+        'Worked with Docker and Kubernetes for containerization and orchestration of cloud-based applications.',
+        'Developed proficiency in Linux administration for server management, shell scripting, and cloud environment configuration.'
+      ]
+    },
+    {
       title: 'Cyber Security Intern',
       company: 'SkillCraft Technologies',
       period: '1 month',

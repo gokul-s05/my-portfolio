@@ -65,20 +65,13 @@ const About = () => {
                 <h2 className="text-2xl font-semibold mb-6 text-center">My Story</h2>
                 <div className="prose prose-neutral dark:prose-invert max-w-none">
                   <p className="text-lg leading-relaxed mb-4">
-                  I am a passionate and versatile tech enthusiast with hands-on experience in ethical hacking and cybersecurity,
-                     focusing on identifying vulnerabilities and securing digital systems. I also specialize in front-end development,
-                      creating responsive and user-friendly interfaces using modern web technologies.
+                  I am a passionate DevOps Engineer currently pursuing my Bachelor of Computer Science at Er. Perumal Manimekalai College of Engineering, Hosur. I specialize in cloud infrastructure on AWS, working with services like EC2, VPC, EKS, ELB, and S3, and I focus on building scalable, highly available, and fault-tolerant systems.
                   </p>
                   <p className="text-lg leading-relaxed mb-4">
-                  Additionally, I have a hands-on experience in mobile app development, building functional and engaging Android applications that enhance user experience. 
-                    My skill set reflects a strong interest in both software development and digital security, allowing me to contribute to innovative, 
-                    secure, and user-centered solutions.
+                  I have hands-on internship experience at AWS Academy and Besant Technologies, where I worked with Docker and Kubernetes for containerization, built CI/CD pipelines using GitHub Actions and Jenkins, and deployed production-grade infrastructure using Terraform and AWS CloudFormation. I enjoy automating everything, from image builds to zero-downtime rolling deployments.
                   </p>
                   <p className="text-lg leading-relaxed">
-                  When I'm not coding, you can find me exploring new technologies, 
-                    contributing to open-source projects, or sharing my knowledge through 
-                    technical writing. I believe in the power of collaboration and 
-                    continuous learning to push the boundaries of what's possible.
+                  When I'm not building pipelines, you can find me exploring new DevOps tools, working on cloud-native projects, or levelling up my AWS skills. I believe in continuous learning, clean infrastructure, and writing code that scales, because good systems should just work.
                   </p>
                 </div>
               </CardContent>
@@ -90,9 +83,9 @@ const About = () => {
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             {[
-              { title: 'Innovation', desc: 'Creative solutions through evolving technology' },
-              { title: 'Quality', desc: 'Consistent excellence in every detail' },
-              { title: 'Impact', desc: 'Driving meaningful change with technology' }
+              { title: 'Innovation', desc: 'Automating infrastructure with modern DevOps tools' },
+              { title: 'Quality', desc: 'Clean, scalable systems built to production standards' },
+              { title: 'Impact', desc: 'Delivering reliable cloud solutions that perform at scale' }
             ].map((value, index) => (
               <motion.div
                 key={value.title}

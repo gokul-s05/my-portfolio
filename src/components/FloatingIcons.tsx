@@ -1,11 +1,11 @@
 
 import { motion } from 'framer-motion';
-import { Code, Palette, Lightbulb, Rocket, Coffee, Heart, Brain } from 'lucide-react';
+import { Code, Cloud, Lightbulb, Rocket, Coffee, Heart, Brain } from 'lucide-react';
 
 const FloatingIcons = () => {
   const icons = [
     { Icon: Code, position: { top: '20%', left: '10%' }, delay: 0 },
-    { Icon: Palette, position: { top: '15%', right: '15%' }, delay: 0 },
+    { Icon: Cloud, position: { top: '15%', right: '15%' }, delay: 0 },
     { Icon: Lightbulb, position: { top: '60%', left: '8%' }, delay: 0 },
     { Icon: Rocket, position: { top: '70%', right: '10%' }, delay: 0 },
     { Icon: Coffee, position: { top: '40%', left: '5%' }, delay: 0 },

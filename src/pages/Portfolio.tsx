@@ -168,16 +168,34 @@ const Portfolio = () => {
 
   const skills = [
     { name: 'Python', icon: getPublicAssetUrl('images/python.png'), level: 85 },
-    { name: 'Java', icon: getPublicAssetUrl('images/java.png'), level: 69 },
-    { name: 'Machine Learning', icon: getPublicAssetUrl('images/machine.png'), level: 75 },
-    { name: 'HTML', icon: getPublicAssetUrl('images/html.png'), level: 95 },
-    { name: 'CSS', icon: getPublicAssetUrl('images/css.png'), level: 92 },
-    { name: 'Android Studio', icon: getPublicAssetUrl('images/android.png'), level: 80 },
-    { name: 'C', icon: getPublicAssetUrl('images/c.png'), level: 70 },
-    { name: 'Kali Linux', icon: getPublicAssetUrl('images/kali.png'), level: 90 }
+    { name: 'AWS', icon: getPublicAssetUrl('images/aws cloud.png'), level: 69 },
+    { name: 'Docker', icon: getPublicAssetUrl('images/docker.png'), level: 75 },
+    { name: 'Kubernetes', icon: getPublicAssetUrl('images/k8s.png'), level: 95 },
+    { name: 'Jenkins', icon: getPublicAssetUrl('images/jenkins.png'), level: 92 },
+    { name: 'Terraform', icon: getPublicAssetUrl('images/terraform.png'), level: 80 },
+    { name: 'GitHub', icon: getPublicAssetUrl('images/github.png'), level: 70 },
+    { name: 'GitHub Actions', icon: getPublicAssetUrl('images/github action.png'), level: 70 },
+    { name: 'Bash', icon: getPublicAssetUrl('images/bash.png'), level: 70 },
+    { name: 'Grafana', icon: getPublicAssetUrl('images/grafana.png'), level: 70 },
+    { name: 'Prometheus', icon: getPublicAssetUrl('images/prometheus.png'), level: 70 },
+    { name: 'RedHat Linux', icon: getPublicAssetUrl('images/redhat.png'), level: 90 }
   ];
 
   const projects = [
+    {
+      title: 'Autoscaling Web Application on AWS EKS 🚀',
+      description: 'Deployed a containerized web application on a multi-node Kubernetes cluster with Terraform, automated CI/CD pipeline, and horizontal pod autoscaling on AWS.',
+      image: getPublicAssetUrl('images/autoscaling.jpg'),
+      tech: ['Terraform', 'Kubernetes', 'Docker', 'AWS EKS','GitHub Actions','AWS S3'],
+      github: 'https://github.com/gokul-s05/eks-devops-project',
+    },
+    {
+      title: 'AWS EKS CI/CD Platform ⚙️',
+      description: 'Built a production-grade EKS platform with fully automated CI/CD pipeline for Docker image builds, ECR pushes, and zero-downtime Kubernetes deployments with real-time monitoring.',
+      image: getPublicAssetUrl('images/eks.png'),
+      tech: ['Grafana', 'Prometheus', 'Helm', 'Docker','AWS ECR','Terraform'],
+      github: 'https://github.com/gokul-s05/eks-cicd-platform',
+    },
     {
       title: 'Football Analytics Platform⚽',
       description: 'Built an AI platform leveraging ML and real-time data to analyze and predict football team performance.',
@@ -200,7 +218,7 @@ const Portfolio = () => {
       image: getPublicAssetUrl('images/web.webp'),
       tech: ['Java', 'XML', 'Java for API','Firebase'],
       github: 'https://github.com/gokul-s05/profile360.git',
-      demo: 'unavailable'
+      
     },
     {
       title: 'Cyber Security Tools🔒',
@@ -224,7 +242,7 @@ const Portfolio = () => {
       image: getPublicAssetUrl('images/employee.png'),
       tech: ['Django', 'PostgreSQL', 'Bootstrap', 'Git'],
       github: 'https://github.com/gokul-s05/employee-management-system.git',
-      demo: 'unavailable'
+    
     }
   ];
 
@@ -244,6 +262,17 @@ const Portfolio = () => {
   ];
 
   const experience = [
+    {
+      title: 'DevOps Engineer Intern',
+      company: 'Besant Technologies',
+      period: '6 month',
+      location: 'Bangalore, Karnataka',
+      achievements: [
+        'Gained hands-on experience with AWS core services including cloud infrastructure setup, deployment, and management.',
+        'Worked with Docker and Kubernetes for containerization and orchestration of cloud-based applications.',
+        'Developed proficiency in Linux administration for server management, shell scripting, and cloud environment configuration.'
+      ]
+    },
     {
       title: 'Cyber Security Intern',
       company: 'SkillCraft Technologies',
@@ -428,7 +457,7 @@ const Portfolio = () => {
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Passionate tech enthusiast skilled in ethical hacking, cybersecurity, front-end development, and mobile app creation using modern tools and technologies.
+              Passionate DevOps Engineer skilled in cloud infrastructure, CI/CD automation, containerization using Docker & Kubernetes, and AWS services — building scalable, reliable systems with modern DevOps tools.
 
             </motion.p>
 
@@ -519,20 +548,13 @@ const Portfolio = () => {
                   <h3 className="text-2xl font-semibold mb-6 text-center">My Story</h3>
                   <div className="prose prose-neutral dark:prose-invert max-w-none">
                     <p className="text-lg leading-relaxed mb-4">
-                    I am a passionate and versatile tech enthusiast with hands-on experience in ethical hacking and cybersecurity,
-                     focusing on identifying vulnerabilities and securing digital systems. I also specialize in front-end development,
-                      creating responsive and user-friendly interfaces using modern web technologies.
+                    I am a passionate DevOps Engineer currently pursuing my Bachelor of Computer Science at Er. Perumal Manimekalai College of Engineering, Hosur. I specialize in cloud infrastructure on AWS, working with services like EC2, VPC, EKS, ELB, and S3, and I focus on building scalable, highly available, and fault-tolerant systems.
                     </p>
                     <p className="text-lg leading-relaxed mb-4">
-                    Additionally, I have a hands-on experience in mobile app development, building functional and engaging Android applications that enhance user experience. 
-                    My skill set reflects a strong interest in both software development and digital security, allowing me to contribute to innovative, 
-                    secure, and user-centered solutions.
+                    I have hands-on internship experience at AWS Academy and Besant Technologies, where I worked with Docker and Kubernetes for containerization, built CI/CD pipelines using GitHub Actions and Jenkins, and deployed production-grade infrastructure using Terraform and AWS CloudFormation. I enjoy automating everything, from image builds to zero-downtime rolling deployments.
                     </p>
                     <p className="text-lg leading-relaxed">
-                    When I'm not coding, you can find me exploring new technologies, 
-                    contributing to open-source projects, or sharing my knowledge through 
-                    technical writing. I believe in the power of collaboration and 
-                    continuous learning to push the boundaries of what's possible.
+                    When I'm not building pipelines, you can find me exploring new DevOps tools, working on cloud-native projects, or levelling up my AWS skills. I believe in continuous learning, clean infrastructure, and writing code that scales, because good systems should just work.
                     </p>
                   </div>
                 </CardContent>
@@ -546,9 +568,9 @@ const Portfolio = () => {
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
             >
               {[
-                { title: 'Innovation', desc: 'Creative solutions through evolving technology' },
-                { title: 'Quality', desc: 'Consistent excellence in every detail' },
-                { title: 'Impact', desc: 'Driving meaningful change with technology' }
+                { title: 'Innovation', desc: 'Automating infrastructure with modern DevOps tools' },
+                { title: 'Quality', desc: 'Clean, scalable systems built to production standards' },
+                { title: 'Impact', desc: 'Delivering reliable cloud solutions that perform at scale' }
               ].map((value, index) => (
                 <motion.div
                   key={value.title}
@@ -602,20 +624,7 @@ const Portfolio = () => {
                       loading="lazy"
                     />
                     <h3 className="text-lg font-semibold mb-3">{skill.name}</h3>
-                    <div className="flex flex-col items-center w-full space-y-1">
-                      <div className="w-full h-3 bg-secondary rounded-full overflow-hidden relative">
-                        <div
-                          className="h-full rounded-full absolute left-0 top-0"
-                          style={{
-                            width: `${skill.level}%`,
-                            background: skill.level <= 34 ? '#ef4444' : 
-                                       skill.level <= 69 ? 'linear-gradient(90deg, #ef4444 0%, #facc15 100%)' : 
-                                       'linear-gradient(90deg, #ef4444 0%, #facc15 50%, #22c55e 100%)',
-                            transition: 'width 1s',
-                          }}
-                        />
-                      </div>
-                    </div>
+                    
                   </CardContent>
                 </Card>
               </motion.div>
@@ -740,7 +749,7 @@ const Portfolio = () => {
               My professional journey and qualifications
             </p>
             <Button asChild size="lg" className="group">
-              <a href={getPublicAssetUrl("images/Gokul's Resume.pdf")} download>
+              <a href={getPublicAssetUrl("images/Gokul_DevOps_Resume.pdf")} download>
                 <Download size={20} className="mr-2 group-hover:animate-bounce" />
                 Download PDF
               </a>

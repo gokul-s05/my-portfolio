@@ -56,7 +56,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Passionate tech enthusiast skilled in ethical hacking, cybersecurity, front-end development, and mobile app creation using modern tools and technologies.
+            Passionate DevOps Engineer skilled in cloud infrastructure, CI/CD automation, containerization using Docker & Kubernetes, and AWS services — building scalable, reliable systems with modern DevOps tools.
 
           </motion.p>
 

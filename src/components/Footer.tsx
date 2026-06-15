@@ -14,7 +14,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © 2025 Gokul's Portfolio. All rights reserved.
+            © 2026 Gokul's Portfolio. All rights reserved.
           </p>
           <div className="flex space-x-4">
             {socialLinks.map((social, index) => (
