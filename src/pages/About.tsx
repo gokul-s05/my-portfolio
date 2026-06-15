@@ -43,11 +43,25 @@ const About = () => {
                 whileHover={{ scale: 1.05, rotate: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <img
-                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=400&fit=crop&crop=face"
-                  alt="Profile"
-                  className="w-full h-full rounded-full object-cover"
-                />
+                <div
+  className="relative w-full h-full rounded-full"
+  onContextMenu={(e) => e.preventDefault()}
+>
+  <img
+    src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=400&fit=crop&crop=face"
+    alt="Profile"
+    className="w-full h-full rounded-full object-cover select-none"
+    draggable="false"
+    onContextMenu={(e) => e.preventDefault()}
+    onDragStart={(e) => e.preventDefault()}
+    style={{ WebkitUserDrag: 'none', userSelect: 'none' } as React.CSSProperties}
+  />
+  <div
+    className="absolute inset-0 rounded-full"
+    onContextMenu={(e) => e.preventDefault()}
+    style={{ WebkitTouchCallout: 'none' } as React.CSSProperties}
+  />
+</div>
               </motion.div>
               <motion.div
                 className="absolute -bottom-2 -right-2 w-12 h-12 bg-primary rounded-full flex items-center justify-center"

@@ -522,11 +522,25 @@ const Portfolio = () => {
                   whileHover={{ scale: 1.05, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <img
-                    src={getPublicAssetUrl('images/gokul.jpg')}
-                    alt="Gokul - Profile"
-                    className="w-full h-full rounded-full object-cover"
-                  />
+                  <div
+  className="relative w-full h-full rounded-full"
+  onContextMenu={(e) => e.preventDefault()}
+>
+  <img
+    src={getPublicAssetUrl('images/gokul.jpg')}
+    alt="Gokul - Profile"
+    className="w-full h-full rounded-full object-cover select-none"
+    draggable="false"
+    onContextMenu={(e) => e.preventDefault()}
+    onDragStart={(e) => e.preventDefault()}
+    style={{ WebkitUserDrag: 'none', userSelect: 'none' } as React.CSSProperties}
+  />
+  <div
+    className="absolute inset-0 rounded-full"
+    onContextMenu={(e) => e.preventDefault()}
+    style={{ WebkitTouchCallout: 'none' } as React.CSSProperties}
+  />
+</div>
                 </motion.div>
                 <motion.div
                   className="absolute -bottom-2 -right-2 w-12 h-12 bg-primary rounded-full flex items-center justify-center"
@@ -882,16 +896,20 @@ const Portfolio = () => {
                 <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300">
                   <div className="relative">
                     <motion.img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full h-56 sm:h-64 object-contain bg-secondary/20 p-6 cursor-zoom-in"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.25 }}
-                      onClick={() => {
-                        setLightboxImage(cert.image);
-                        setIsLightboxOpen(true);
-                      }}
-                    />
+  src={cert.image}
+  alt={cert.title}
+  className="w-full h-56 sm:h-64 object-contain bg-secondary/20 p-6 cursor-zoom-in select-none"
+  whileHover={{ scale: 1.02 }}
+  transition={{ duration: 0.25 }}
+  draggable="false"
+  onContextMenu={(e) => e.preventDefault()}
+  onDragStart={(e) => e.preventDefault()}
+  style={{ WebkitUserDrag: 'none', userSelect: 'none' } as React.CSSProperties}
+  onClick={() => {
+    setLightboxImage(cert.image);
+    setIsLightboxOpen(true);
+  }}
+/>
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-lg font-semibold">{cert.title}</h3>
@@ -938,13 +956,17 @@ const Portfolio = () => {
                 <X size={18} />
               </button>
               <motion.img
-                initial={{ scale: 0.95 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.2 }}
-                src={lightboxImage}
-                alt="Certificate enlarged"
-                className="w-full max-h-[80vh] object-contain rounded-md shadow-xl"
-              />
+  initial={{ scale: 0.95 }}
+  animate={{ scale: 1 }}
+  transition={{ duration: 0.2 }}
+  src={lightboxImage}
+  alt="Certificate enlarged"
+  className="w-full max-h-[80vh] object-contain rounded-md shadow-xl select-none"
+  draggable="false"
+  onContextMenu={(e) => e.preventDefault()}
+  onDragStart={(e) => e.preventDefault()}
+  style={{ WebkitUserDrag: 'none', userSelect: 'none' } as React.CSSProperties}
+/>
             </div>
           </motion.div>
         )}
