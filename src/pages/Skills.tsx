@@ -55,11 +55,24 @@ const Skills = () => {
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: categoryIndex * 0.2 }}
-            >
+  key={category.title}
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: categoryIndex * 0.2 }}
+  onMouseMove={(e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    e.currentTarget.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = 'translate(0px, 0px)';
+    e.currentTarget.style.transition = 'transform 0.5s ease';
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transition = 'transform 0.1s ease';
+  }}
+>
               <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 hover:border-primary/50 transition-colors">
                 <CardContent className="p-6">
                   <h3 className="text-2xl font-semibold mb-6 text-center gradient-text">

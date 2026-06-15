@@ -622,13 +622,41 @@ const Portfolio = () => {
           <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
               <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
+  key={skill.name}
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: index * 0.1 }}
+  onMouseMove={(e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    e.currentTarget.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
+    e.currentTarget.style.boxShadow = `${-x * 0.05}px ${-y * 0.05}px 20px rgba(139,92,246,0.3)`;
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+    e.currentTarget.style.transform = 'translate(0px, 0px)';
+    e.currentTarget.style.boxShadow = 'none';
+  }}
+  onTouchMove={(e) => {
+    const touch = e.touches[0];
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = touch.clientX - rect.left - rect.width / 2;
+    const y = touch.clientY - rect.top - rect.height / 2;
+    e.currentTarget.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
+    e.currentTarget.style.transform = `translate(${x * 0.08}px, ${y * 0.08}px)`;
+    e.currentTarget.style.boxShadow = `${-x * 0.05}px ${-y * 0.05}px 20px rgba(139,92,246,0.3)`;
+  }}
+  onTouchEnd={(e) => {
+    e.currentTarget.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+    e.currentTarget.style.transform = 'translate(0px, 0px)';
+    e.currentTarget.style.boxShadow = 'none';
+  }}
+>
                 <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 hover:border-primary/50 transition-colors text-center">
                   <CardContent className="p-6 flex flex-col items-center">
                     <img
@@ -657,10 +685,11 @@ const Portfolio = () => {
             className="text-center mb-16"
           >
             <h2
-              className="text-4xl sm:text-5xl font-bold mb-2 gradient-text text-center leading-tight !text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 overflow-visible"
-            >
-              My Projects
-            </h2>
+  className="text-4xl sm:text-5xl font-bold mb-6 gradient-text text-center !text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"
+  style={{ lineHeight: '1.3', paddingBottom: '4px' }}
+>
+  My Projects
+</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-center">
               A collection of projects that showcase my skills and passion for development
             </p>
@@ -677,15 +706,70 @@ const Portfolio = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group"
-              >
-                <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300">
+  key={project.title}
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: index * 0.1 }}
+  className="group"
+  style={{ perspective: '1000px' }}
+  onMouseMove={(e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const rotateX = ((y - cy) / cy) * -10;
+    const rotateY = ((x - cx) / cx) * 10;
+    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
+    const spotlight = e.currentTarget.querySelector('.project-spotlight') as HTMLElement;
+    if (card) {
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    }
+    if (spotlight) {
+      spotlight.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(139,92,246,0.25) 0%, transparent 65%)`;
+      spotlight.style.opacity = '1';
+    }
+  }}
+  onMouseLeave={(e) => {
+    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
+    const spotlight = e.currentTarget.querySelector('.project-spotlight') as HTMLElement;
+    if (card) {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    }
+    if (spotlight) {
+      spotlight.style.opacity = '0';
+    }
+  }}
+  onTouchMove={(e) => {
+    const touch = e.touches[0];
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const rotateX = ((y - cy) / cy) * -10;
+    const rotateY = ((x - cx) / cx) * 10;
+    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
+    if (card) {
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    }
+  }}
+  onTouchEnd={(e) => {
+    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
+    if (card) {
+      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    }
+  }}
+>
+                <Card className="project-card h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300 relative"
+  style={{ transformStyle: 'preserve-3d', transition: 'transform 0.15s ease, box-shadow 0.15s ease' }}
+>
+  {/* Spotlight overlay */}
+  <div
+    className="project-spotlight absolute inset-0 z-10 pointer-events-none rounded-lg opacity-0"
+    style={{ transition: 'opacity 0.2s ease' }}
+  />
                   <div className="relative overflow-hidden">
                     <motion.img
                       src={project.image}

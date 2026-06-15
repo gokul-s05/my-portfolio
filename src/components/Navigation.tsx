@@ -115,30 +115,31 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden fixed top-16 left-1/2 -translate-x-1/2 w-9/12 max-w-xs bg-background rounded-xl shadow-lg z-50 flex flex-col items-center justify-center py-4"
-          >
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-center py-2 px-4 rounded-lg transition-colors ${
-                  activeSection === item.id
-                    ? 'bg-primary/10 text-primary font-bold'
-                    : 'text-muted-foreground hover:bg-accent'
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
-          </motion.div>
-        )}
-      </div>
+        </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: -10, scale: 0.95 }}
+          className="md:hidden absolute top-16 right-4 w-44 bg-background/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl z-50 py-2"
+        >
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`block w-full text-center py-2 px-4 text-sm transition-colors ${
+                activeSection === item.id
+                  ? 'text-primary font-semibold'
+                  : 'text-muted-foreground hover:text-primary'
+              }`}
+            >
+              {item.name}
+            </button>
+          ))}
+        </motion.div>
+      )}
     </motion.nav>
   );
 };
