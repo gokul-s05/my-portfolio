@@ -16,7 +16,7 @@ const Projects = () => {
     {
       title: 'Autoscaling Web Application on AWS EKS 🚀',
       description: 'Deployed a containerized web application on a multi-node Kubernetes cluster with Terraform, automated CI/CD pipeline, and horizontal pod autoscaling on AWS.',
-      image: 'src/assets/autoscaling.jpg',
+      image: 'src/assets/autoscaling.webp',
       tech: ['Terraform','Kubernetes','Docker','AWS EKS','GitHub Actions','AWS S3'],
       github: 'https://github.com/gokul-s05/eks-devops-project',
       
@@ -24,14 +24,14 @@ const Projects = () => {
     {
       title: 'AWS EKS CI/CD Platform ⚙️',
       description: 'Built a production-grade EKS platform with fully automated CI/CD pipeline for Docker image builds, ECR pushes, and zero-downtime Kubernetes deployments with real-time monitoring.',
-      image: 'src/assets/eks.png',
+      image: 'src/assets/eks.webp',
       tech: ['Grafana', 'Prometheus', 'Helm', 'Docker','AWS ECR','Terraform'],
       github: 'https://github.com/gokul-s05/eks-cicd-platform',
       
     },
     {title: 'Football Analytics Platform⚽',
       description: 'Built an AI platform leveraging ML and real-time data to analyze and predict football team performance.',
-      image: 'src/assets/football.jpg',
+      image: 'src/assets/football.webp',
       tech: ['Python', 'Streamlit', 'OpenCV', 'YOLOv8'],
       github: 'https://github.com/gokul-s05/football_analysis.git',
       demo: 'https://demo.com'
@@ -39,7 +39,7 @@ const Projects = () => {
     {
       title: 'virtual Mouse🖱️',
       description: 'Created a gesture-controlled virtual mouse using OpenCV for touchless cursor control via real-time hand tracking.',
-      image: 'src/assets/mouse.jpg',
+      image: 'src/assets/mouse.webp',
       tech: ['OpenCV', 'MediaPipe', 'Python','PyAutoGUI'],
       github: 'https://github.com/gokul-s05/virtual_mouse.git',
       
@@ -63,7 +63,7 @@ const Projects = () => {
     {
       title: 'Portfolio Website🌐',
       description: 'Modern portfolio website with smooth animations and responsive design.',
-      image: 'src/assets/portfolio.jpg',
+      image: 'src/assets/portfolio.webp',
       tech: ['React', 'Framer Motion', 'Tailwind CSS'],
       github: 'https://github.com/gokul-s05/my-portfolio',
       demo: 'https://gokul-s05.github.io/portfolio/',
@@ -72,7 +72,7 @@ const Projects = () => {
     {
       title: 'Employee Management System🛄',
       description: 'A Django-based Employee Management System with PostgreSQL, Bootstrap 5 UI, and Crispy Forms for smooth CRUD operations.',
-      image: 'src/assets/employee.png',
+      image: 'src/assets/employee.webp',
       tech: ['Django', 'PostgreSQL', 'Bootstrap', 'Git'],
       github: 'https://github.com/gokul-s05/employee-management-system.git',
       

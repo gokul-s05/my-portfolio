@@ -167,39 +167,39 @@ const Portfolio = () => {
   };
 
   const skills = [
-    { name: 'Python', icon: getPublicAssetUrl('images/python.png'), level: 85 },
-    { name: 'AWS', icon: getPublicAssetUrl('images/aws cloud.png'), level: 69 },
+    { name: 'Python', icon: getPublicAssetUrl('images/python.webp'), level: 85 },
+    { name: 'AWS', icon: getPublicAssetUrl('images/aws cloud.webp'), level: 69 },
     { name: 'Docker', icon: getPublicAssetUrl('images/docker.png'), level: 75 },
-    { name: 'Kubernetes', icon: getPublicAssetUrl('images/k8s.png'), level: 95 },
-    { name: 'Jenkins', icon: getPublicAssetUrl('images/jenkins.png'), level: 92 },
-    { name: 'Terraform', icon: getPublicAssetUrl('images/terraform.png'), level: 80 },
-    { name: 'GitHub', icon: getPublicAssetUrl('images/github.png'), level: 70 },
+    { name: 'Kubernetes', icon: getPublicAssetUrl('images/k8s.webp'), level: 95 },
+    { name: 'Jenkins', icon: getPublicAssetUrl('images/jenkins.webp'), level: 92 },
+    { name: 'Terraform', icon: getPublicAssetUrl('images/terraform.webp'), level: 80 },
+    { name: 'GitHub', icon: getPublicAssetUrl('images/github.webp'), level: 70 },
     { name: 'GitHub Actions', icon: getPublicAssetUrl('images/github action.png'), level: 70 },
-    { name: 'Bash', icon: getPublicAssetUrl('images/bash.png'), level: 70 },
-    { name: 'Grafana', icon: getPublicAssetUrl('images/grafana.png'), level: 70 },
-    { name: 'Prometheus', icon: getPublicAssetUrl('images/prometheus.png'), level: 70 },
-    { name: 'RedHat Linux', icon: getPublicAssetUrl('images/redhat.png'), level: 90 }
+    { name: 'Bash', icon: getPublicAssetUrl('images/bash.webp'), level: 70 },
+    { name: 'Grafana', icon: getPublicAssetUrl('images/grafana.webp'), level: 70 },
+    { name: 'Prometheus', icon: getPublicAssetUrl('images/prometheus.webp'), level: 70 },
+    { name: 'RedHat Linux', icon: getPublicAssetUrl('images/redhat.webp'), level: 90 }
   ];
 
   const projects = [
     {
       title: 'Autoscaling Web Application on AWS EKS 🚀',
       description: 'Deployed a containerized web application on a multi-node Kubernetes cluster with Terraform, automated CI/CD pipeline, and horizontal pod autoscaling on AWS.',
-      image: getPublicAssetUrl('images/autoscaling.jpg'),
+      image: getPublicAssetUrl('images/autoscaling.webp'),
       tech: ['Terraform', 'Kubernetes', 'Docker', 'AWS EKS','GitHub Actions','AWS S3'],
       github: 'https://github.com/gokul-s05/eks-devops-project',
     },
     {
       title: 'AWS EKS CI/CD Platform ⚙️',
       description: 'Built a production-grade EKS platform with fully automated CI/CD pipeline for Docker image builds, ECR pushes, and zero-downtime Kubernetes deployments with real-time monitoring.',
-      image: getPublicAssetUrl('images/eks.png'),
+      image: getPublicAssetUrl('images/eks.webp'),
       tech: ['Grafana', 'Prometheus', 'Helm', 'Docker','AWS ECR','Terraform'],
       github: 'https://github.com/gokul-s05/eks-cicd-platform',
     },
     {
       title: 'Football Analytics Platform⚽',
       description: 'Built an AI platform leveraging ML and real-time data to analyze and predict football team performance.',
-      image: getPublicAssetUrl('images/football.jpg'),
+      image: getPublicAssetUrl('images/football.webp'),
       tech: ['Python', 'Streamlit', 'OpenCV', 'YOLOv8'],
       github: 'https://github.com/gokul-s05/football_analysis.git',
       demo: 'unavailable'
@@ -207,7 +207,7 @@ const Portfolio = () => {
     {
       title: 'Virtual Mouse🖱️',
       description: 'Created a gesture-controlled virtual mouse using OpenCV for touchless cursor control via real-time hand tracking.',
-      image: getPublicAssetUrl('images/mouse.jpg'),
+      image: getPublicAssetUrl('images/mouse.webp'),
       tech: ['OpenCV', 'MediaPipe', 'Python','PyAutoGUI'],
       github: 'https://github.com/gokul-s05/virtual_mouse.git',
       demo: 'unavailable'
@@ -231,7 +231,7 @@ const Portfolio = () => {
     {
       title: 'Portfolio Website🌐',
       description: 'Modern portfolio website with smooth animations and responsive design.',
-      image: getPublicAssetUrl('images/portfolio.jpg'),
+      image: getPublicAssetUrl('images/portfolio.webp'),
       tech: ['React', 'Framer Motion', 'Tailwind CSS'],
       github: 'https://github.com/gokul-s05/my-portfolio',
       demo: 'https://gokul-s05.github.io/portfolio/',
@@ -240,7 +240,7 @@ const Portfolio = () => {
     {
       title: 'Employee Management System🛄',
       description: 'A Django-based Employee Management System with PostgreSQL, Bootstrap 5 UI, and Crispy Forms for smooth CRUD operations.',
-      image: getPublicAssetUrl('images/employee.png'),
+      image: getPublicAssetUrl('images/employee.webp'),
       tech: ['Django', 'PostgreSQL', 'Bootstrap', 'Git'],
       github: 'https://github.com/gokul-s05/employee-management-system.git',
     
@@ -314,56 +314,56 @@ const Portfolio = () => {
       title: 'Cyber Job Simulation',
       issuer: 'Deloitte / Forage',
       date: 'Sep 2025',
-      image: getPublicAssetUrl('images/Deloitte.png'),
+      image: getPublicAssetUrl('images/Deloitte.webp'),
       credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_sQyFDqhToW3FagtWh_1757235729943_completion_certificate.pdf'
     },
     {
       title: 'AWS Cloud Architecting',
       issuer: 'AWS Academy',
       date: 'Aug 2025',
-      image: getPublicAssetUrl('images/AWS.png'),
+      image: getPublicAssetUrl('images/AWS.webp'),
       credentialUrl: 'https://www.credly.com/badges/460bbe95-f1db-4a9d-b8eb-1a0ffa95466a/public_url'
     },
     {
       title: 'Solutions Architecture Job Simulation',
       issuer: 'AWS / Forage',
       date: 'Sep 2025',
-      image: getPublicAssetUrl('images/AWS forage.png'),
+      image: getPublicAssetUrl('images/AWS forage.webp'),
       credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_sQyFDqhToW3FagtWh_1757241032270_completion_certificate.pdf'
     },
     {
       title: 'Cybersecurity Analyst Job Simulation',
       issuer: 'TCS / Forage',
       date: 'Sep 2025',
-      image: getPublicAssetUrl('images/Tata cyber.png'),
+      image: getPublicAssetUrl('images/Tata cyber.webp'),
       credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_sQyFDqhToW3FagtWh_1757238290185_completion_certificate.pdf'
     },
     {
       title: 'Cybersecurity Intern',
       issuer: 'SkillCraft Technologies',
       date: 'June - July 2025',
-      image: getPublicAssetUrl('images/Skillcraft.png'),
+      image: getPublicAssetUrl('images/Skillcraft.webp'),
       credentialUrl: 'https://skillcrafttech.com/verify?id=SCT/JUN25/6339'
     },
     {
       title: 'Cyber security with Ethical Hacking Intern',
       issuer: 'Rinex',
       date: 'Sept - Oct 2023',
-      image: getPublicAssetUrl('images/rinex.png'),
+      image: getPublicAssetUrl('images/rinex.webp'),
       credentialUrl: 'https://drive.google.com/file/d/1n15ekL4GB29ouMPLOuatSH6w3MrGprY7/view?usp=sharing'
     },
     {
       title: 'Complete IP Addressing and Subnetting Course',
       issuer: 'Geek for Geeks',
       date: 'June - July 2025',
-      image: getPublicAssetUrl('images/geek for geeks.png'),
+      image: getPublicAssetUrl('images/geek for geeks.webp'),
       credentialUrl: 'https://media.geeksforgeeks.org/courses/certificates/f6dfe1b8d746d1da5f84027c74d4afcc.pdf'
     },
     {
       title: 'Cyber Security Foundation Certication',
       issuer: 'Infosys Springboard',
       date: 'Aug 2025',
-      image: getPublicAssetUrl('images/infosys.png'),
+      image: getPublicAssetUrl('images/infosys.webp'),
       credentialUrl: 'https://drive.google.com/file/d/1I08Aon7lIdr8gWfHtqELovQmK3yNtxZA/view?usp=drive_link'
     },
   ];
@@ -528,7 +528,7 @@ const Portfolio = () => {
   onContextMenu={(e) => e.preventDefault()}
 >
   <img
-    src={getPublicAssetUrl('images/gokul.jpg')}
+    src={getPublicAssetUrl('images/gokul.webp')}
     alt="Gokul - Profile"
     className="w-full h-full rounded-full object-cover select-none"
     draggable="false"
