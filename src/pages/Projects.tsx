@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
 
+
 const Projects = () => {
   const projects: {
     title: string;
@@ -95,7 +96,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -103,7 +104,7 @@ const Projects = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="group"
+              className="group flex-none w-[300px] sm:w-[350px] snap-start"
             >
               <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300">
                 <div className="relative overflow-hidden">

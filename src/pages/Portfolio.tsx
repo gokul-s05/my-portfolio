@@ -704,7 +704,7 @@ const Portfolio = () => {
             </motion.div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide">
             {projects.map((project, index) => (
               <motion.div
   key={project.title}
@@ -712,7 +712,7 @@ const Portfolio = () => {
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true }}
   transition={{ delay: index * 0.1 }}
-  className="group"
+  className="group flex-none w-[300px] sm:w-[350px] snap-start"
   style={{ perspective: '1000px' }}
   onMouseMove={(e) => {
     const rect = e.currentTarget.getBoundingClientRect();
