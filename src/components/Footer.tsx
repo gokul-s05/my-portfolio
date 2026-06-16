@@ -9,7 +9,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Github, href: 'https://github.com/gokul-s05', label: 'GitHub' },
     { icon: Linkedin, href: 'https://www.linkedin.com/in/gokuls05', label: 'LinkedIn' },
-    { icon: Instagram, href: 'https://instagram.com/go_cool_.05', label: 'Instagram' },
+    { icon: Instagram, href: 'https://instagram.com/gocool.05', label: 'Instagram' },
   ];
 
   const handleCopyrightClick = () => {
@@ -49,12 +49,12 @@ const Footer = () => {
                 >
                   Created by{' '}
                   <a
-                    href="https://instagram.com/go_cool_.05"
+                    href="https://instagram.com/gocool.05"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-pink-400 hover:text-pink-300 underline font-medium"
                   >
-                    @go_cool_.05
+                    @gocool.05
                   </a>
                 </motion.div>
               )}
