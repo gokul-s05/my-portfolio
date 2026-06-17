@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
@@ -19,6 +20,12 @@ const About = () => {
   };
 
   return (
+    <>
+    <Helmet>
+  <title>About Gokul S | DevOps Engineer Tamil Nadu</title>
+  <meta name="description" content="Learn about Gokul S – DevOps Engineer from Tamil Nadu pursuing B.E Computer Science, specialized in AWS, Kubernetes and cloud infrastructure." />
+</Helmet>
+    
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -114,7 +121,9 @@ const About = () => {
         </motion.div>
       </div>
     </div>
-  );
+  
+  </>
+);
 };
 
 export default About;

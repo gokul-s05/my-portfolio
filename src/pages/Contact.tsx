@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -103,6 +104,11 @@ const Contact = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+  <title>Contact Gokul S | DevOps Engineer</title>
+  <meta name="description" content="Get in touch with Gokul S – DevOps Engineer from Tamil Nadu. Available for internships, freelance and full-time opportunities." />
+</Helmet>
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -262,7 +268,9 @@ const Contact = () => {
         </div>
       </div>
     </div>
-  );
+  
+  </>
+);
 };
 
 export default Contact;

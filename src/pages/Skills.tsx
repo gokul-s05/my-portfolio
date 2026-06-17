@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Skills = () => {
@@ -37,6 +38,11 @@ const Skills = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+  <title>Skills | Gokul S | AWS Docker Kubernetes Terraform</title>
+  <meta name="description" content="Technical skills of Gokul S – AWS, Docker, Kubernetes, Terraform, Python, Jenkins, GitHub Actions, Prometheus, Grafana." />
+</Helmet>
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -130,7 +136,9 @@ const Skills = () => {
         </motion.div>
       </div>
     </div>
-  );
+  
+  </>
+);
 };
 
 export default Skills;

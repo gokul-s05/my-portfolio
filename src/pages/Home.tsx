@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -7,6 +8,11 @@ import FloatingIcons from '@/components/FloatingIcons';
 
 const Home = () => {
   return (
+    <>
+    <Helmet>
+      <title>Gokul S | DevOps Engineer | AWS Kubernetes Docker</title>
+      <meta name="description" content="Gokul S – Passionate DevOps Engineer skilled in AWS, Kubernetes, Docker, Terraform and CI/CD automation." />
+    </Helmet>
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0">
@@ -95,7 +101,8 @@ const Home = () => {
         </motion.div>
       </div>
     </div>
-  );
+  </>
+);
 };
 
 export default Home;

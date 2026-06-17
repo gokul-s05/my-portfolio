@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Download, Calendar, MapPin } from 'lucide-react';
@@ -68,6 +69,11 @@ const Resume = () => {
   ];
 
   return (
+    <>
+    <Helmet>
+  <title>Resume | Gokul S | DevOps Engineer</title>
+  <meta name="description" content="Resume of Gokul S – DevOps Engineer with internship experience at Besant Technologies, SkillCraft, Rinex and JRM Infotech." />
+</Helmet>
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -178,7 +184,9 @@ const Resume = () => {
         </div>
       </div>
     </div>
-  );
+  
+  </>
+);
 };
 
 export default Resume;
