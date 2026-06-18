@@ -16,6 +16,7 @@ const Portfolio = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [formData, setFormData] = useState({
     from_name: '',
     from_email: '',
@@ -704,137 +705,118 @@ const Portfolio = () => {
             </motion.div>
           </motion.div>
 
-          <div className="flex overflow-x-auto gap-6 pb-4 snap-x snap-mandatory scrollbar-hide">
-            {projects.map((project, index) => (
-              <motion.div
-  key={project.title}
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ delay: index * 0.1 }}
-  className="group flex-none w-[300px] sm:w-[350px] snap-start"
-  style={{ perspective: '1000px' }}
-  onMouseMove={(e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
-    const rotateX = ((y - cy) / cy) * -7;
-    const rotateY = ((x - cx) / cx) * 7;
-    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
-    const spotlight = e.currentTarget.querySelector('.project-spotlight') as HTMLElement;
-    if (card) {
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-    }
-    if (spotlight) {
-      spotlight.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(139,92,246,0.25) 0%, transparent 65%)`;
-      spotlight.style.opacity = '1';
-    }
-  }}
-  onMouseLeave={(e) => {
-    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
-    const spotlight = e.currentTarget.querySelector('.project-spotlight') as HTMLElement;
-    if (card) {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-    }
-    if (spotlight) {
-      spotlight.style.opacity = '0';
-    }
-  }}
-  onTouchMove={(e) => {
-    const touch = e.touches[0];
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = touch.clientX - rect.left;
-    const y = touch.clientY - rect.top;
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
-    const rotateX = ((y - cy) / cy) * -7;
-    const rotateY = ((x - cx) / cx) * 7;
-    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
-    if (card) {
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-    }
-  }}
-  onTouchEnd={(e) => {
-    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
-    if (card) {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-    }
-  }}
->
-                <Card className="project-card h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300 relative"
-  style={{ transformStyle: 'preserve-3d', transition: 'transform 0.15s ease, box-shadow 0.15s ease' }}
->
-  {/* Spotlight overlay */}
-  <div
-    className="project-spotlight absolute inset-0 z-10 pointer-events-none rounded-lg opacity-0"
-    style={{ transition: 'opacity 0.2s ease' }}
-  />
-                  <div className="relative overflow-hidden">
-                    <motion.img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-64 object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </div>
-                  
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 min-h-[72px]">
-                      {project.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <div className="flex flex-col sm:flex-row gap-2">
-                    <Button asChild size="sm" variant="outline" className="w-full sm:flex-1">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github size={16} className="mr-2" />
-                          Code
-                        </a>
-                      </Button>
-                      {project.demo && (
-                        project.isCurrentSite ? (
-                          <Button size="sm" className="w-full sm:flex-1 text-xs" disabled>
-                            You are currently viewing this project
-                          </Button>
-                        ) : (
-                          <Button
-                            size="sm"
-                            className="w-full sm:flex-1"
-                            disabled={project.demo === 'unavailable'}
-                          >
-                            {project.demo === 'unavailable' ? (
-                              <span>Live Demo (Unavailable)</span>
-                            ) : (
-                              <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                                Live Demo
-                              </a>
-                            )}
-                          </Button>
-                        )
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+          {/* 3D Carousel Stage */}
+          <div style={{ perspective: '1200px', width: '100%', position: 'relative' }}>
+            <div className="relative flex items-center justify-center" style={{ height: '460px' }}>
+              {(() => {
+                const total = projects.length;
+                return projects.map((project, index) => {
+                  const offset = ((index - activeProjectIndex) % total + total) % total;
+      const norm = offset <= total / 2 ? offset : offset - total;
+      if (Math.abs(norm) > 2) return null;
+      const x = norm * 230;
+      const z = -Math.abs(norm) * 130;
+      const scale = 1 - Math.abs(norm) * 0.15;
+      const opacity = norm === 0 ? 1 : Math.abs(norm) === 1 ? 0.65 : 0.3;
+      const zIndex = 10 - Math.abs(norm);
+      const isActive = norm === 0;
+      return (
+        <motion.div
+          key={project.title}
+          onClick={() => !isActive && setActiveProjectIndex(index)}
+          animate={{ x, z, scale, opacity }}
+          transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+          style={{
+            position: 'absolute',
+            width: '300px',
+            zIndex,
+            cursor: isActive ? 'default' : 'pointer',
+            transformStyle: 'preserve-3d',
+          }}
+          className="group"
+        >
+          <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300" style={{ height: '450px' }}>
+            <div className="relative overflow-hidden">
+              <motion.img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-44 object-cover"
+                whileHover={{ scale: 1.08 }}
+                transition={{ duration: 0.3 }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {project.isCurrentSite && (
+                <span className="absolute top-2 right-2 text-xs px-2 py-1 rounded-full bg-background/80 border border-border/50">
+                  Current site
+                </span>
+              )}
+            </div>
+            <CardContent className="p-5 flex flex-col gap-3">
+              <h3 className="text-base font-semibold leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                {project.title}
+              </h3>
+              <p className="text-muted-foreground text-sm line-clamp-3">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {project.tech.map((tech) => (
+                  <span key={tech} className="px-2 py-0.5 text-xs bg-primary/10 text-primary rounded-full border border-primary/20">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="flex gap-2 mt-auto pt-1">
+                <Button asChild size="sm" variant="outline" className="flex-1">
+                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <Github size={14} className="mr-1.5" />Code
+                  </a>
+                </Button>
+                {project.demo && (
+                  project.demo === 'unavailable' ? (
+                    <Button size="sm" className="flex-1 text-xs" disabled>Demo unavailable</Button>
+                  ) : project.isCurrentSite ? (
+                    <Button size="sm" className="flex-1 text-xs" disabled>Viewing now</Button>
+                  ) : (
+                    <Button asChild size="sm" className="flex-1">
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer">Live Demo</a>
+                    </Button>
+                  )
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+              );
+                });
+              })()}
+            </div>
+
+            {/* Nav row */}
+            <div className="flex items-center justify-center gap-4 mt-6">
+              <button
+                onClick={() => setActiveProjectIndex((activeProjectIndex - 1 + projects.length) % projects.length)}
+      className="w-9 h-9 rounded-full border border-border/50 bg-card/50 flex items-center justify-center hover:bg-card transition-colors"
+      aria-label="Previous project"
+    >‹</button>
+    <div className="flex gap-2">
+      {projects.map((_, i) => (
+        <button
+          key={i}
+          onClick={() => setActiveProjectIndex(i)}
+          aria-label={`Go to project ${i + 1}`}
+          className="h-1.5 rounded-full transition-all duration-300"
+          style={{ width: i === activeProjectIndex ? '20px' : '6px', background: i === activeProjectIndex ? 'hsl(var(--primary))' : 'hsl(var(--border))' }}
+        />
+      ))}
+    </div>
+    <button
+      onClick={() => setActiveProjectIndex((activeProjectIndex + 1) % projects.length)}
+      className="w-9 h-9 rounded-full border border-border/50 bg-card/50 flex items-center justify-center hover:bg-card transition-colors"
+      aria-label="Next project"
+    >›</button>
+  </div>
+  <p className="text-center text-xs text-muted-foreground mt-2">{activeProjectIndex + 1} / {projects.length}</p>
+</div>
         </div>
       </section>
 
