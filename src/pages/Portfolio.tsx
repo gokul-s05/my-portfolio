@@ -255,19 +255,21 @@ const Portfolio = () => {
   ];
 
   const education = [
-    {
-      degree: 'Bachelor of Engineering in Computer Science',
-      school: 'Anna University',
-      period: '2022 - 2026',
-      location: 'Hosur, Tamil Nadu'
-    },
-    {
-      degree: 'Computer Science',
-      school: 'Sri vijay vidyalaya matriculation higher secondary school',
-      period: '2021 - 2022',
-      location: 'Hosur, Tamil Nadu'
-    }
-  ];
+  {
+    degree: 'Bachelor of Engineering in Computer Science',
+    school: 'Anna University',
+    period: '2022 - 2026',
+    location: 'Hosur, Tamil Nadu',
+    score: 'CGPA: 7.80/10 (till 7th sem)'
+  },
+  {
+    degree: 'Computer Science',
+    school: 'Sri vijay vidyalaya matriculation higher secondary school',
+    period: '2021 - 2022',
+    location: 'Hosur, Tamil Nadu',
+    score: 'Class XII - 75.83%'
+  }
+];
 
   const experience = [
     {
@@ -414,7 +416,8 @@ const Portfolio = () => {
   return (
     <div className="w-full">
       {/* Home Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-16 md:scroll-mt-20">
+
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000" />
@@ -501,7 +504,8 @@ const Portfolio = () => {
       
 
       {/* About Section */}
-      <section id="about" className="min-h-screen py-24">
+      <section id="about" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -609,7 +613,8 @@ const Portfolio = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="min-h-screen py-24">
+      <section id="skills" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -627,7 +632,7 @@ const Portfolio = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {skills.map((skill, index) => (
               <motion.div
   key={skill.name}
@@ -666,14 +671,14 @@ const Portfolio = () => {
   }}
 >
                 <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 hover:border-primary/50 transition-colors text-center">
-                  <CardContent className="p-6 flex flex-col items-center">
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="w-12 h-12 mb-4 object-contain"
-                      loading="lazy"
-                    />
-                    <h3 className="text-lg font-semibold mb-3">{skill.name}</h3>
+                  <CardContent className="p-3 sm:p-6 flex flex-col items-center">
+  <img
+    src={skill.icon}
+    alt={skill.name}
+    className="w-9 h-9 sm:w-12 sm:h-12 mb-2 sm:mb-4 object-contain"
+    loading="lazy"
+  />
+  <h3 className="text-sm sm:text-lg font-semibold mb-1 sm:mb-3">{skill.name}</h3>
                     
                   </CardContent>
                 </Card>
@@ -684,7 +689,8 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="min-h-screen py-24">
+      <section id="projects" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -846,7 +852,8 @@ const Portfolio = () => {
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="min-h-screen py-24">
+      <section id="resume" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -877,7 +884,7 @@ const Portfolio = () => {
               transition={{ delay: 0.2 }}
             >
               <h3 className="text-3xl font-bold mb-8 gradient-text">Experience</h3>
-              <div className="space-y-6">
+              <div className="grid grid-cols-2 md:grid-cols-1 gap-4 md:gap-6">
                 {experience.map((job, index) => (
                   <motion.div
                     key={job.title}
@@ -887,31 +894,33 @@ const Portfolio = () => {
                     transition={{ delay: 0.3 + index * 0.1 }}
                   >
                     <Card className="backdrop-blur-sm bg-card/50 border-border/50">
-                      <CardContent className="p-6">
-                        <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                          <div>
-                            <h4 className="text-xl font-semibold">{job.title}</h4>
-                            <p className="text-primary font-medium">{job.company}</p>
-                          </div>
-                          <div className="text-sm text-muted-foreground mt-2 md:mt-0 md:text-right">
-                            <div className="flex items-center md:justify-end">
-                              <Calendar size={14} className="mr-1" />
-                              {job.period}
-                            </div>
-                            <div className="flex items-center md:justify-end mt-1">
-                              <MapPin size={14} className="mr-1" />
-                              {job.location}
-                            </div>
-                          </div>
+                      <CardContent className="p-3 md:p-6">
+                        <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 md:mb-4">
+  <div>
+    <h4 className="text-sm md:text-xl font-semibold leading-tight">{job.title}</h4>
+<p className="text-xs md:text-base text-primary font-medium leading-tight mt-1">{job.company}</p>
+  </div>
+                          <div className="text-xs md:text-sm text-muted-foreground mt-1 md:mt-0 md:text-right">
+  <div className="flex items-center md:justify-end">
+    <Calendar size={12} className="mr-1 md:hidden" />
+    <Calendar size={14} className="mr-1 hidden md:inline" />
+    {job.period}
+  </div>
+  <div className="flex items-center md:justify-end mt-1">
+    <MapPin size={12} className="mr-1 md:hidden" />
+    <MapPin size={14} className="mr-1 hidden md:inline" />
+    {job.location}
+  </div>
+</div>
                         </div>
-                        <ul className="space-y-2">
-                          {job.achievements.map((achievement, idx) => (
-                            <li key={idx} className="flex items-start">
-                              <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                              <span className="text-muted-foreground">{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <ul className="space-y-1 md:space-y-2">
+  {job.achievements.map((achievement, idx) => (
+    <li key={idx} className="flex items-start">
+      <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full mt-1.5 md:mt-2 mr-2 md:mr-3 flex-shrink-0" />
+      <span className="text-xs md:text-base text-muted-foreground leading-snug">{achievement}</span>
+    </li>
+  ))}
+</ul>
                       </CardContent>
                     </Card>
                   </motion.div>
@@ -940,9 +949,10 @@ const Portfolio = () => {
                       <CardContent className="p-6">
                         <div className="flex flex-col md:flex-row md:justify-between md:items-start">
                           <div>
-                            <h4 className="text-xl font-semibold">{edu.degree}</h4>
-                            <p className="text-primary font-medium">{edu.school}</p>
-                          </div>
+  <h4 className="text-xl font-semibold">{edu.degree}</h4>
+  <p className="text-primary font-medium">{edu.school}</p>
+  <p className="text-sm text-muted-foreground mt-1">{edu.score}</p>
+</div>
                           <div className="text-sm text-muted-foreground mt-2 md:mt-0 md:text-right">
                             <div className="flex items-center md:justify-end">
                               <Calendar size={14} className="mr-1" />
@@ -965,13 +975,14 @@ const Portfolio = () => {
       </section>
 
       {/* Certificates Section */}
-      <section id="certificates" className="min-h-screen py-24">
+      <section id="certificates" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 md:mb-16"
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 gradient-text">
               Certifications
@@ -981,7 +992,8 @@ const Portfolio = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8">
+
             {(showAllCertificates ? certificates : certificates.slice(0, 3)).map((cert, index) => (
               <motion.div
                 key={cert.title}
@@ -996,7 +1008,8 @@ const Portfolio = () => {
                     <motion.img
   src={cert.image}
   alt={cert.title}
-  className="w-full h-56 sm:h-64 object-contain bg-secondary/20 p-6 cursor-zoom-in select-none"
+  className="w-full h-20 sm:h-56 md:h-64 object-contain bg-secondary/20 p-1.5 sm:p-6 cursor-zoom-in select-none"
+
   whileHover={{ scale: 1.02 }}
   transition={{ duration: 0.25 }}
   draggable="false"
@@ -1009,17 +1022,17 @@ const Portfolio = () => {
   }}
 />
                   </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold">{cert.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{cert.issuer}</p>
-                    <p className="text-xs text-muted-foreground mt-1 flex items-center">
-                      <Calendar size={14} className="mr-1" />
-                      {cert.date}
-                    </p>
+                  <CardContent className="p-2 sm:p-6">
+  <h3 className="text-xs sm:text-lg font-semibold leading-tight">{cert.title}</h3>
+  <p className="text-[11px] sm:text-sm text-muted-foreground mt-1">{cert.issuer}</p>
+  <p className="text-[10px] sm:text-xs text-muted-foreground mt-1 flex items-center">
+    <Calendar size={10} className="mr-1" />
+    {cert.date}
+  </p>
                     {cert.credentialUrl && (
-                      <div className="mt-4">
-                        <Button asChild size="sm" variant="outline">
-                          <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
+  <div className="mt-2 sm:mt-4">
+    <Button asChild size="sm" variant="outline" className="text-[10px] sm:text-sm px-1.5 sm:px-4 h-6 sm:h-9 w-full sm:w-auto">
+      <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
                             {(cert.issuer === 'Geek for Geeks' || cert.issuer === 'Rinex' || cert.issuer === 'Deloitte / Forage' || cert.issuer === 'AWS / Forage' || cert.issuer === 'TCS / Forage' || cert.issuer === 'Infosys Springboard') ? 'View Certificate' : 'View Credential'}
                           </a>
                         </Button>
@@ -1030,7 +1043,7 @@ const Portfolio = () => {
               </motion.div>
             ))}
           </div>
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center mt-4 sm:mt-8">
             <Button variant="outline" onClick={handleToggleCertificates}>
               {showAllCertificates ? 'Show less' : 'View all certificates'}
             </Button>
@@ -1070,7 +1083,8 @@ const Portfolio = () => {
         )}
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-background/50">
+      <section id="contact" className="py-16 bg-background/50 scroll-mt-10 md:scroll-mt-20">
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1242,13 +1256,13 @@ const Portfolio = () => {
                       key={info.label}
                       href={info.href}
                       initial={{ opacity: 0, x: -20, y: 20 }}
-                      whileInView={{ opacity: 1, x: 0, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ 
-                        duration: 0.5,
-                        delay: index * 0.2,
-                        ease: "easeOut"
-                      }}
+whileInView={{ opacity: 1, x: 0, y: 0 }}
+viewport={{ once: true }}
+transition={{ 
+  duration: 0.5,
+  delay: index * 0.2,
+  ease: "easeOut"
+}}
                       whileHover={{ 
                         scale: 1.02,
                         x: 10,
