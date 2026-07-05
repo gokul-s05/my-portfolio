@@ -101,7 +101,8 @@ const About = () => {
 
           <motion.div 
             variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6"
+
           >
             {[
               { title: 'Innovation', desc: 'Automating infrastructure with modern DevOps tools' },
@@ -111,10 +112,12 @@ const About = () => {
               <motion.div
                 key={value.title}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="text-center p-6 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5 border border-border/30"
+                className="text-center p-4 sm:p-6 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5 border border-border/30"
+
               >
                 <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                <p className="text-muted-foreground">{value.desc}</p>
+                <p className="text-sm sm:text-base text-muted-foreground">{value.desc}</p>
+
               </motion.div>
             ))}
           </motion.div>

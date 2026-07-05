@@ -570,16 +570,22 @@ const Portfolio = () => {
               viewport={{ once: true }}
             >
               <Card className="backdrop-blur-sm bg-card/50 border-border/50">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold mb-6 text-center">My Story</h3>
+                <CardContent className="p-4 sm:p-8">
+                  <h3 className="!text-xl sm:!text-2xl font-semibold mb-3 sm:mb-6 text-center">My Story</h3>
+
+
+
                   <div className="prose prose-neutral dark:prose-invert max-w-none">
-                    <p className="text-lg leading-relaxed mb-4">
+                    <p className="!text-base sm:!text-lg leading-relaxed mb-3 sm:mb-4">
+
                     I am a passionate DevOps Engineer currently pursuing my Bachelor of Computer Science at Er. Perumal Manimekalai College of Engineering, Hosur. I specialize in cloud infrastructure on AWS, working with services like EC2, VPC, EKS, ELB, and S3, and I focus on building scalable, highly available, and fault-tolerant systems.
                     </p>
-                    <p className="text-lg leading-relaxed mb-4">
+                    <p className="!text-base sm:!text-lg leading-relaxed mb-3 sm:mb-4">
+
                     I have hands-on internship experience at AWS Academy and Besant Technologies, where I worked with Docker and Kubernetes for containerization, built CI/CD pipelines using GitHub Actions and Jenkins, and deployed production-grade infrastructure using Terraform and AWS CloudFormation. I enjoy automating everything, from image builds to zero-downtime rolling deployments.
                     </p>
-                    <p className="text-lg leading-relaxed">
+                      <p className="!text-base sm:!text-lg leading-relaxed mb-3 sm:mb-4">
+
                     When I'm not building pipelines, you can find me exploring new DevOps tools, working on cloud-native projects, or levelling up my AWS skills. I believe in continuous learning, clean infrastructure, and writing code that scales, because good systems should just work.
                     </p>
                   </div>
@@ -603,7 +609,8 @@ const Portfolio = () => {
                   whileHover={{ y: -5, scale: 1.02 }}
                   className="text-center p-6 rounded-lg bg-gradient-to-br from-primary/5 to-accent/5 border border-border/30"
                 >
-                  <h4 className="text-xl font-semibold mb-2">{value.title}</h4>
+                  <h4 className="text-base sm:text-xl font-semibold mb-1 sm:mb-2">{value.title}</h4>
+
                   <p className="text-muted-foreground">{value.desc}</p>
                 </motion.div>
               ))}
