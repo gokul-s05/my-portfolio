@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
@@ -7,7 +7,22 @@ import { Github } from 'lucide-react';
 
 
 const Projects = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        el.scrollLeft += e.deltaY;
+      }
+    };
+
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    return () => el.removeEventListener('wheel', handleWheel);
+  }, []);
 
   const projects: {
     title: string;
@@ -46,7 +61,7 @@ const Projects = () => {
       image: 'src/assets/football.webp',
       tech: ['Python', 'Streamlit', 'OpenCV', 'YOLOv8'],
       github: 'https://github.com/gokul-s05/football_analysis.git',
-      demo: 'unavailable'
+      demo: 'https://demo.com'
     },
     {
       title: 'virtual Mouse🖱️',
@@ -54,7 +69,7 @@ const Projects = () => {
       image: 'src/assets/mouse.webp',
       tech: ['OpenCV', 'MediaPipe', 'Python','PyAutoGUI'],
       github: 'https://github.com/gokul-s05/virtual_mouse.git',
-      demo: 'unavailable'
+      
     },
     {
       title: 'Profile 360👤',
@@ -112,118 +127,72 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* 3D Carousel Stage */}
-<div style={{ perspective: '1200px', width: '100%', position: 'relative' }}>
-  <div className="relative flex items-center justify-center" style={{ height: '460px' }}>
-    {(() => {
-      const total = projects.length;
-      return projects.map((project, index) => {
-        const offset = ((index - activeIndex) % total + total) % total;
-      const norm = offset <= total / 2 ? offset : offset - total;
-      if (Math.abs(norm) > 2) return null;
-      const x = norm * 230;
-      const z = -Math.abs(norm) * 130;
-      const scale = 1 - Math.abs(norm) * 0.15;
-      const opacity = norm === 0 ? 1 : Math.abs(norm) === 1 ? 0.65 : 0.3;
-      const zIndex = 10 - Math.abs(norm);
-      const isActive = norm === 0;
-      return (
-        <motion.div
-          key={project.title}
-          onClick={() => !isActive && setActiveIndex(index)}
-          animate={{ x, z, scale, opacity }}
-          transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
-          style={{
-            position: 'absolute',
-            width: '300px',
-            zIndex,
-            cursor: isActive ? 'default' : 'pointer',
-            transformStyle: 'preserve-3d',
-          }}
-          className="group"
-        >
-          <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300" style={{ height: '450px' }}>
-            <div className="relative overflow-hidden">
-              <motion.img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-44 object-cover"
-                whileHover={{ scale: 1.08 }}
-                transition={{ duration: 0.3 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              {project.isCurrentSite && (
-                <span className="absolute top-2 right-2 text-xs px-2 py-1 rounded-full bg-background/80 border border-border/50">
-                  Current site
-                </span>
-              )}
-            </div>
-            <CardContent className="p-5 flex flex-col gap-3">
-              <h3 className="text-base font-semibold leading-snug group-hover:text-primary transition-colors line-clamp-2">
-                {project.title}
-              </h3>
-              <p className="text-muted-foreground text-sm line-clamp-3">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tech.map((tech) => (
-                  <span key={tech} className="px-2 py-0.5 text-xs bg-primary/10 text-primary rounded-full border border-primary/20">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div className="flex gap-2 mt-auto pt-1">
-                <Button asChild size="sm" variant="outline" className="flex-1">
-                  <a href={project.github} target="_blank" rel="noopener noreferrer">
-                    <Github size={14} className="mr-1.5" />Code
-                  </a>
-                </Button>
-                {project.demo && (
-                  project.demo === 'unavailable' ? (
-                    <Button size="sm" className="flex-1 text-xs" disabled>Demo unavailable</Button>
-                  ) : project.isCurrentSite ? (
-                    <Button size="sm" className="flex-1 text-xs" disabled>Viewing now</Button>
-                  ) : (
-                    <Button asChild size="sm" className="flex-1">
-                      <a href={project.demo} target="_blank" rel="noopener noreferrer">Live Demo</a>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="group"
+            >
+              <Card className="h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300">
+                <div className="relative overflow-hidden">
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button asChild size="sm" variant="outline" className="w-full sm:flex-1">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github size={16} className="mr-2" />
+                        Code
+                      </a>
                     </Button>
-                  )
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      );
-      });
-    })()}
-  </div>
-
-  {/* Nav row */}
-  <div className="flex items-center justify-center gap-4 mt-6">
-    <button
-      onClick={() => setActiveIndex((activeIndex - 1 + projects.length) % projects.length)}
-      className="w-9 h-9 rounded-full border border-border/50 bg-card/50 flex items-center justify-center hover:bg-card transition-colors"
-      aria-label="Previous project"
-    >‹</button>
-    <div className="flex gap-2">
-      {projects.map((_, i) => (
-        <button
-          key={i}
-          onClick={() => setActiveIndex(i)}
-          aria-label={`Go to project ${i + 1}`}
-          className="h-1.5 rounded-full transition-all duration-300"
-          style={{ width: i === activeIndex ? '20px' : '6px', background: i === activeIndex ? 'hsl(var(--primary))' : 'hsl(var(--border))' }}
-        />
-      ))}
-    </div>
-    <button
-      onClick={() => setActiveIndex((activeIndex + 1) % projects.length)}
-      className="w-9 h-9 rounded-full border border-border/50 bg-card/50 flex items-center justify-center hover:bg-card transition-colors"
-      aria-label="Next project"
-    >›</button>
-  </div>
-  <p className="text-center text-xs text-muted-foreground mt-2">{activeIndex + 1} / {projects.length}</p>
-</div>
+                  )                    {project.demo && (
+                      project.isCurrentSite ? (
+                        <Button size="sm" className="w-full sm:flex-1 text-xs" disabled>
+                          You are currently viewing this project
+                        </Button>
+                      ) : (
+                        <Button asChild size="sm" className="flex-1">
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                            Live Demo
+                          </a>
+                        </Button>
+                      )
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   
