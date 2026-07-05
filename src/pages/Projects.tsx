@@ -34,6 +34,13 @@ const Projects = () => {
       github: 'https://github.com/gokul-s05/eks-cicd-platform',
       
     },
+    {
+      title: 'Three-Tier AWS Infrastructure 💻',
+      description: 'Modular three-tier architecture on AWS with isolated networking, auto-scaled compute, and a zero-exposure private database tier. ',
+      image: 'src/assets/tier.webp',
+      tech: ['Terraform', 'AWS VPC', 'AWS EC2', 'RDS','Secret Manager','ALB'],
+      github: 'https://github.com/gokul-s05/three-tier-aws-terraform',
+    },
     {title: 'Football Analytics Platform⚽',
       description: 'Built an AI platform leveraging ML and real-time data to analyze and predict football team performance.',
       image: 'src/assets/football.webp',
