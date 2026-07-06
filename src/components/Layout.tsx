@@ -9,8 +9,8 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-secondary/20">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+    <div className="min-h-screen relative">
+      
       <Navigation />
       <motion.main
         initial={{ opacity: 0 }}

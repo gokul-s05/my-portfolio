@@ -320,13 +320,6 @@ const Portfolio = () => {
 
   const certificates = [
     {
-      title: 'Cyber Job Simulation',
-      issuer: 'Deloitte / Forage',
-      date: 'Sep 2025',
-      image: getPublicAssetUrl('images/Deloitte.webp'),
-      credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_sQyFDqhToW3FagtWh_1757235729943_completion_certificate.pdf'
-    },
-    {
       title: 'AWS Cloud Architecting',
       issuer: 'AWS Academy',
       date: 'Aug 2025',
@@ -334,32 +327,25 @@ const Portfolio = () => {
       credentialUrl: 'https://www.credly.com/badges/460bbe95-f1db-4a9d-b8eb-1a0ffa95466a/public_url'
     },
     {
-      title: 'Solutions Architecture Job Simulation',
-      issuer: 'AWS / Forage',
-      date: 'Sep 2025',
-      image: getPublicAssetUrl('images/AWS forage.webp'),
-      credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_sQyFDqhToW3FagtWh_1757241032270_completion_certificate.pdf'
+      title: 'DevOps Foundations',
+      issuer: 'LinkedIn Learning',
+      date: 'June 2026',
+      image: getPublicAssetUrl('images/devops.webp'),
+      credentialUrl: 'https://drive.google.com/file/d/1H7tGK1f7ieMhN7eyk5XOiZkmRRYjWoxp/view?usp=drive_link'
     },
     {
-      title: 'Cybersecurity Analyst Job Simulation',
-      issuer: 'TCS / Forage',
-      date: 'Sep 2025',
-      image: getPublicAssetUrl('images/Tata cyber.webp'),
-      credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_sQyFDqhToW3FagtWh_1757238290185_completion_certificate.pdf'
+      title: 'DevOps Foundations: CI/CD',
+      issuer: 'LinkedIn Learning',
+      date: 'June 2026',
+      image: getPublicAssetUrl('images/devops cicd.webp'),
+      credentialUrl: 'https://drive.google.com/file/d/1EW4u1Q0CAkRocse_pEsDGUc59YvSDiwE/view?usp=sharing'
     },
     {
-      title: 'Cybersecurity Intern',
-      issuer: 'SkillCraft Technologies',
-      date: 'June - July 2025',
-      image: getPublicAssetUrl('images/Skillcraft.webp'),
-      credentialUrl: 'https://skillcrafttech.com/verify?id=SCT/JUN25/6339'
-    },
-    {
-      title: 'Cyber security with Ethical Hacking Intern',
-      issuer: 'Rinex',
-      date: 'Sept - Oct 2023',
-      image: getPublicAssetUrl('images/rinex.webp'),
-      credentialUrl: 'https://drive.google.com/file/d/1n15ekL4GB29ouMPLOuatSH6w3MrGprY7/view?usp=sharing'
+      title: 'Cyber Security Foundation Certication',
+      issuer: 'Infosys Springboard',
+      date: 'Aug 2025',
+      image: getPublicAssetUrl('images/infosys.webp'),
+      credentialUrl: 'https://drive.google.com/file/d/1I08Aon7lIdr8gWfHtqELovQmK3yNtxZA/view?usp=drive_link'
     },
     {
       title: 'Complete IP Addressing and Subnetting Course',
@@ -369,11 +355,39 @@ const Portfolio = () => {
       credentialUrl: 'https://media.geeksforgeeks.org/courses/certificates/f6dfe1b8d746d1da5f84027c74d4afcc.pdf'
     },
     {
-      title: 'Cyber Security Foundation Certication',
-      issuer: 'Infosys Springboard',
-      date: 'Aug 2025',
-      image: getPublicAssetUrl('images/infosys.webp'),
-      credentialUrl: 'https://drive.google.com/file/d/1I08Aon7lIdr8gWfHtqELovQmK3yNtxZA/view?usp=drive_link'
+      title: 'Cyber security with Ethical Hacking Intern',
+      issuer: 'Rinex',
+      date: 'Sept - Oct 2023',
+      image: getPublicAssetUrl('images/rinex.webp'),
+      credentialUrl: 'https://drive.google.com/file/d/1iR4RTXoplLVmlQjib0V8rD0IW8JFjNzw/view?usp=sharing'
+    },
+    {
+      title: 'Cybersecurity Intern',
+      issuer: 'SkillCraft Technologies',
+      date: 'June - July 2025',
+      image: getPublicAssetUrl('images/Skillcraft.webp'),
+      credentialUrl: 'https://skillcrafttech.com/verify?id=SCT/JUN25/6339'
+    },
+    {
+      title: 'Cyber Job Simulation',
+      issuer: 'Deloitte / Forage',
+      date: 'Sep 2025',
+      image: getPublicAssetUrl('images/Deloitte.webp'),
+      credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_sQyFDqhToW3FagtWh_1757235729943_completion_certificate.pdf'
+    },
+    {
+      title: 'Cybersecurity Analyst Job Simulation',
+      issuer: 'TCS / Forage',
+      date: 'Sep 2025',
+      image: getPublicAssetUrl('images/Tata cyber.webp'),
+      credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_sQyFDqhToW3FagtWh_1757238290185_completion_certificate.pdf'
+    },
+    {
+      title: 'Solutions Architecture Job Simulation',
+      issuer: 'AWS / Forage',
+      date: 'Sep 2025',
+      image: getPublicAssetUrl('images/AWS forage.webp'),
+      credentialUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_sQyFDqhToW3FagtWh_1757241032270_completion_certificate.pdf'
     },
   ];
 
@@ -1040,7 +1054,7 @@ const Portfolio = () => {
   <div className="mt-2 sm:mt-4">
     <Button asChild size="sm" variant="outline" className="text-[10px] sm:text-sm px-1.5 sm:px-4 h-6 sm:h-9 w-full sm:w-auto">
       <a href={cert.credentialUrl} target="_blank" rel="noopener noreferrer">
-                            {(cert.issuer === 'Geek for Geeks' || cert.issuer === 'Rinex' || cert.issuer === 'Deloitte / Forage' || cert.issuer === 'AWS / Forage' || cert.issuer === 'TCS / Forage' || cert.issuer === 'Infosys Springboard') ? 'View Certificate' : 'View Credential'}
+                            {(cert.issuer === 'Geek for Geeks' || cert.issuer === 'Rinex' || cert.issuer === 'Deloitte / Forage' || cert.issuer === 'AWS / Forage' || cert.issuer === 'TCS / Forage' || cert.issuer === 'Infosys Springboard' || cert.issuer === 'LinkedIn Learning') ? 'View Certificate' : 'View Credential'}
                           </a>
                         </Button>
                       </div>

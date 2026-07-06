@@ -56,7 +56,8 @@ const Navigation = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/40 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/5"
+
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -123,7 +124,10 @@ const Navigation = () => {
           initial={{ opacity: 0, y: -10, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: -10, scale: 0.95 }}
-          className="md:hidden absolute top-16 right-4 w-44 bg-background/95 backdrop-blur-md border border-border/50 rounded-xl shadow-xl z-50 py-2"
+          className="md:hidden absolute top-16 right-4 w-44 bg-background/90 backdrop-blur-2xl [-webkit-backdrop-filter:blur(24px)] border border-white/10 rounded-xl shadow-xl shadow-black/20 z-50 py-2"
+
+
+
         >
           {navItems.map((item) => (
             <button
