@@ -430,7 +430,7 @@ const Portfolio = () => {
   return (
     <div className="w-full">
       {/* Home Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden scroll-mt-16 md:scroll-mt-20">
+      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
 
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
@@ -518,7 +518,7 @@ const Portfolio = () => {
       
 
       {/* About Section */}
-      <section id="about" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+      <section id="about" className="min-h-screen py-24">
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -634,7 +634,7 @@ const Portfolio = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+      <section id="skills" className="min-h-screen py-24">
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -710,7 +710,7 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+      <section id="projects" className="min-h-screen py-24">
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -873,7 +873,7 @@ const Portfolio = () => {
       </section>
 
       {/* Resume Section */}
-      <section id="resume" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+      <section id="resume" className="min-h-screen py-24">
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -996,7 +996,7 @@ const Portfolio = () => {
       </section>
 
       {/* Certificates Section */}
-      <section id="certificates" className="py-12 md:min-h-screen md:py-24 scroll-mt-10 md:scroll-mt-20">
+      <section id="certificates" className="min-h-screen py-24">
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -1104,7 +1104,7 @@ const Portfolio = () => {
         )}
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-background/50 scroll-mt-10 md:scroll-mt-20">
+      <section id="contact" className="py-16 bg-background/25">
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
