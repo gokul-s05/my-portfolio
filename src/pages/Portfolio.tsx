@@ -1104,7 +1104,7 @@ const Portfolio = () => {
         )}
       </section>
       {/* Contact Section */}
-      <section id="contact" className="py-16 bg-background/25">
+      <section id="contact" className="py-24 bg-background/25">
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
