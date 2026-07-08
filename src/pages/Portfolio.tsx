@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Download, Calendar, MapPin, Github, Mail, Phone, Send, X } from 'lucide-react';
+import { ArrowDown, Download, Calendar, MapPin, Github, Mail, Phone, Send, X, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -20,6 +20,7 @@ const Portfolio = () => {
     from_name: '',
     from_email: '',
     phone_number: '',
+    company_name: '',
     message: ''
   });
   const [errors, setErrors] = useState({
@@ -137,7 +138,7 @@ const Portfolio = () => {
       });
       
       // Reset form and errors
-      setFormData({ from_name: '', from_email: '', phone_number: '', message: '' });
+      setFormData({ from_name: '', from_email: '', phone_number: '',company_name: '', message: '' });
       setErrors({ from_name: '', from_email: '', message: '' });
     } catch (error) {
       console.error('Error sending email:', error);
@@ -509,7 +510,29 @@ const Portfolio = () => {
                 Download Resume
               </Button>
             </motion.div>
-          </motion.div>
+
+            <motion.div
+  className="flex justify-center mt-6"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false, amount: 0.3 }}
+  transition={{ duration: 0.8, delay: 0.8 }}
+>
+  <motion.div
+    animate={{ scale: [1, 1.2, 1] }}
+    transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+  >
+    <Button
+      size="lg"
+      className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white hover:opacity-90 flex items-center gap-2"
+      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+    >
+      <User className="w-5 h-5" />
+      Hire Me
+    </Button>
+  </motion.div>
+</motion.div>
+</motion.div>
         </div>
       </section>
 
@@ -1115,7 +1138,25 @@ const Portfolio = () => {
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 gradient-text">Get In Touch</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind? Let's work together to bring your ideas to life.
+               I'm currently looking for <span className="font-semibold">
+  {"new opportunities".split(' ').map((word, wordIndex, words) => (
+    <span key={wordIndex} className="inline-block whitespace-nowrap">
+      {word.split('').map((char, i) => {
+        const globalIndex = words.slice(0, wordIndex).join(' ').length + wordIndex + i;
+        return (
+          <span
+            key={i}
+            className="gradient-wave-letter"
+            style={{ animationDelay: `0s, ${globalIndex * 0.08}s` }}
+          >
+            {char}
+          </span>
+        );
+      })}
+      {wordIndex < words.length - 1 && '\u00A0'}
+    </span>
+  ))}
+</span> - feel free to reach out if you'd like to connect.
             </p>
           </motion.div>
 
@@ -1129,7 +1170,8 @@ const Portfolio = () => {
             >
               <Card className="backdrop-blur-sm bg-card/50 border-border/50">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold mb-6">Send Message</h3>
+                  <h3 className="text-2xl font-semibold mb-2">Interested in Hiring Me?</h3>
+<p className="text-sm text-muted-foreground mb-6">Recruiters and hiring managers, I'd love to hear about the opportunity.</p>
                   <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
@@ -1204,14 +1246,33 @@ const Portfolio = () => {
                     </motion.div>
 
                     <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.55 }}
+>
+  <label htmlFor="company_name" className="block text-sm font-medium mb-2">
+    Company (Optional)
+  </label>
+  <Input
+    id="company_name"
+    name="company_name"
+    value={formData.company_name}
+    onChange={handleChange}
+    placeholder="Enter your company name"
+    className="transition-all duration-200 focus:scale-105"
+  />
+</motion.div>
+
+                    <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.6 }}
                     >
                       <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        Message <span className="text-red-500">*</span>
-                      </label>
+  Role Details / Message <span className="text-red-500">*</span>
+</label>
                       <Textarea
                         id="message"
                         name="message"
@@ -1219,7 +1280,7 @@ const Portfolio = () => {
                         onChange={handleChange}
                         required
                         rows={5}
-                        placeholder="Type your message here..."
+                        placeholder="Tell me about the role, tech stack, and what you're looking for..."
                         className={`transition-all duration-200 focus:scale-105 ${
                           errors.message ? 'border-red-500' : ''
                         }`}
@@ -1251,7 +1312,7 @@ const Portfolio = () => {
                         ) : (
                           <>
                             <Send size={20} className="mr-2 group-hover:translate-x-1 transition-transform" />
-                            Send Message
+                            Send to Gokul
                           </>
                         )}
                       </Button>
