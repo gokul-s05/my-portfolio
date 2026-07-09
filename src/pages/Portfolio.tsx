@@ -406,7 +406,35 @@ const Portfolio = () => {
       return next;
     });
   };
-
+const [typedCommand, setTypedCommand] = useState('');
+  useEffect(() => {
+    const fullText = '--active';
+    let index = 0;
+    let isDeleting = false;
+    let timeoutId: ReturnType<typeof setTimeout>;
+    const tick = () => {
+      if (!isDeleting) {
+        index++;
+        setTypedCommand(fullText.slice(0, index));
+        if (index === fullText.length) {
+          isDeleting = true;
+          timeoutId = setTimeout(tick, 1500);
+          return;
+        }
+      } else {
+        index--;
+        setTypedCommand(fullText.slice(0, index));
+        if (index === 0) {
+          isDeleting = false;
+          timeoutId = setTimeout(tick, 500);
+          return;
+        }
+      }
+      timeoutId = setTimeout(tick, isDeleting ? 60 : 100);
+    };
+    timeoutId = setTimeout(tick, 100);
+    return () => clearTimeout(timeoutId);
+  }, []);
   const contactInfo = [
     {
       icon: Mail,
@@ -592,12 +620,19 @@ const Portfolio = () => {
 </div>
                 </motion.div>
                 <motion.div
-                  className="absolute -bottom-2 -right-2 w-12 h-12 bg-primary rounded-full flex items-center justify-center"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-                >
-                  👋
-                </motion.div>
+  className="absolute -bottom-2 -right-2 flex items-center gap-1.5 bg-black/90 border border-primary/30 rounded-md px-3 py-1.5 shadow-lg font-mono"
+  animate={{ y: [0, -4, 0] }}
+  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+>
+  <span className="text-green-400 text-xs">$</span>
+  <span className="text-green-400 text-xs">status {typedCommand}</span>
+
+  <motion.span
+    className="w-1.5 h-3 bg-green-400"
+    animate={{ opacity: [1, 0, 1] }}
+    transition={{ duration: 0.8, repeat: Infinity, ease: 'steps(1)' }}
+  />
+</motion.div>
               </div>
             </motion.div>
 
@@ -1173,6 +1208,8 @@ const Portfolio = () => {
                   <h3 className="text-2xl font-semibold mb-2">Interested in Hiring Me?</h3>
 <p className="text-sm text-muted-foreground mb-6">Recruiters and hiring managers, I'd love to hear about the opportunity.</p>
                   <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+  <input type="hidden" name="to_name" value="Gokul S" />
+  <input type="hidden" name="to_email" value="gokulsarav2005@gmail.com" />
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}

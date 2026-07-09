@@ -135,6 +135,8 @@ const Contact = () => {
               <CardContent className="p-8">
                 <h2 className="text-2xl font-semibold mb-6">Send Message</h2>
                 <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+  <input type="hidden" name="to_name" value="Gokul S" />
+  <input type="hidden" name="to_email" value="gokulsarav2005@gmail.com" />
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
