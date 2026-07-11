@@ -724,7 +724,8 @@ const [typedCommand, setTypedCommand] = useState('');
             >
               Skills & Expertise
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-center">
+            <p className="text-sm sm:text-xl text-muted-foreground max-w-2xl mx-auto text-center">
+
               DevOps tools and cloud technologies I work with
             </p>
           </motion.div>
@@ -801,20 +802,23 @@ const [typedCommand, setTypedCommand] = useState('');
 >
   My Projects
 </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-center">
+            <p className="text-sm sm:text-xl text-muted-foreground max-w-2xl mx-auto text-center">
+
               A collection of DevOps and cloud infrastructure projects that showcase my skills in AWS, Kubernetes, Docker and Terraform
             </p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-4 text-sm text-muted-foreground text-center bg-secondary/20 p-3 rounded-lg mx-auto max-w-2xl"
+              className="mt-3 sm:mt-4 text-xs sm:text-sm text-muted-foreground text-center bg-secondary/20 p-2 sm:p-3 rounded-lg mx-auto max-w-2xl"
+
             >
               <span className="font-medium">Note:</span> Some project demos are marked as unavailable as they require specific setup or are currently under maintenance.
             </motion.div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
+
             {projects.map((project, index) => (
               <motion.div
   key={project.title}
@@ -852,26 +856,7 @@ const [typedCommand, setTypedCommand] = useState('');
       spotlight.style.opacity = '0';
     }
   }}
-  onTouchMove={(e) => {
-    const touch = e.touches[0];
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = touch.clientX - rect.left;
-    const y = touch.clientY - rect.top;
-    const cx = rect.width / 2;
-    const cy = rect.height / 2;
-    const rotateX = ((y - cy) / cy) * -7;
-    const rotateY = ((x - cx) / cx) * 7;
-    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
-    if (card) {
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
-    }
-  }}
-  onTouchEnd={(e) => {
-    const card = e.currentTarget.querySelector('.project-card') as HTMLElement;
-    if (card) {
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-    }
-  }}
+  
 >
                 <Card className="project-card h-full backdrop-blur-sm bg-card/50 border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300 relative"
   style={{ transformStyle: 'preserve-3d', transition: 'transform 0.15s ease, box-shadow 0.15s ease' }}
@@ -885,50 +870,54 @@ const [typedCommand, setTypedCommand] = useState('');
                     <motion.img
                       src={project.image}
                       alt={`${project.title} - DevOps project by Gokul S`}
-                      className="w-full h-64 object-cover"
+                      className="w-full h-28 sm:h-64 object-cover"
+
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                   
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                  <CardContent className="p-3 sm:p-6">
+
+                    <h3 className="text-sm sm:text-xl font-semibold mb-1 sm:mb-3 leading-tight group-hover:text-primary transition-colors">
+
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4 min-h-[72px]">
+                    <p className="text-xs sm:text-base text-muted-foreground mb-2 sm:mb-4 min-h-0 sm:min-h-[72px] leading-snug line-clamp-3 sm:line-clamp-none">
+
                       {project.description}
                     </p>
                     
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-1 text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                    <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
+  {project.tech.map((tech) => (
+    <span
+      key={tech}
+      className="px-1.5 py-0.5 sm:px-2 sm:py-1 text-[10px] sm:text-xs bg-primary/10 text-primary rounded-full border border-primary/20"
+    >
+      {tech}
+    </span>
+  ))}
+</div>
                     
-                    <div className="flex flex-col sm:flex-row gap-2">
-                    <Button asChild size="sm" variant="outline" className="w-full sm:flex-1">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github size={16} className="mr-2" />
-                          Code
-                        </a>
-                      </Button>
+                    <div className="flex flex-col sm:flex-row gap-1.5 sm:gap-2">
+<Button asChild size="sm" variant="outline" className="w-full sm:flex-1 text-[11px] sm:text-sm h-7 sm:h-9 px-2">
+    <a href={project.github} target="_blank" rel="noopener noreferrer">
+      <Github size={14} className="mr-1 sm:mr-2" />
+      Code
+    </a>
+  </Button>
                       {project.demo && (
                         project.isCurrentSite ? (
-                          <Button size="sm" className="w-full sm:flex-1 text-xs" disabled>
-                            You are currently viewing this project
-                          </Button>
+                          <Button size="sm" className="w-full sm:flex-1 text-[10px] sm:text-xs h-auto min-h-7 sm:h-9 py-1.5 px-2 leading-tight whitespace-normal" disabled>
+  You are currently viewing this project
+</Button>
                         ) : (
                           <Button
-                            size="sm"
-                            className="w-full sm:flex-1"
-                            disabled={project.demo === 'unavailable'}
-                          >
+  size="sm"
+  className="w-full sm:flex-1 text-[11px] sm:text-sm h-7 sm:h-9 px-2"
+  disabled={project.demo === 'unavailable'}
+>
                             {project.demo === 'unavailable' ? (
                               <span>Live Demo (Unavailable)</span>
                             ) : (
