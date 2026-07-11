@@ -106,8 +106,9 @@ const Contact = () => {
   return (
     <>
     <Helmet>
-  <title>Contact Gokul S | DevOps Engineer</title>
-  <meta name="description" content="Get in touch with Gokul S – DevOps Engineer from Tamil Nadu. Available for internships, freelance and full-time opportunities." />
+  <title>Contact Gokul S | DevOps Engineer Portfolio</title>
+  <meta name="description" content="Get in touch with Gokul S – DevOps Engineer from Tamil Nadu. Available for internships, freelance and full-time DevOps opportunities." />
+  <link rel="canonical" href="https://gokul-s-portfolio.vercel.app/contact" />
 </Helmet>
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

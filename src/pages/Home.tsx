@@ -10,8 +10,9 @@ const Home = () => {
   return (
     <>
     <Helmet>
-      <title>Gokul S | DevOps Engineer | AWS Kubernetes Docker</title>
-      <meta name="description" content="Gokul S – Passionate DevOps Engineer skilled in AWS, Kubernetes, Docker, Terraform and CI/CD automation." />
+      <title>Gokul S | DevOps Engineer Portfolio</title>
+      <meta name="description" content="Gokul S DevOps Portfolio – Passionate DevOps Engineer skilled in AWS, Kubernetes, Docker, Terraform and CI/CD automation. Explore Gokul's DevOps projects and resume." />
+      <link rel="canonical" href="https://gokul-s-portfolio.vercel.app/" />
     </Helmet>
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
@@ -28,6 +29,15 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          <motion.p
+            className="uppercase tracking-widest text-sm sm:text-base text-primary/80 font-semibold mb-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            DevOps Engineer Portfolio
+          </motion.p>
+
           <motion.h1
             className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 gradient-text"
             initial={{ opacity: 0, scale: 0.5 }}
@@ -62,8 +72,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Passionate DevOps Engineer skilled in cloud infrastructure, CI/CD automation, containerization using Docker & Kubernetes, and AWS services — building scalable, reliable systems with modern DevOps tools.
-
+            Welcome to my DevOps portfolio — I'm a passionate DevOps Engineer skilled in cloud infrastructure, CI/CD automation, containerization using Docker & Kubernetes, and AWS services, building scalable, reliable systems with modern DevOps tools.
           </motion.p>
 
           <motion.div

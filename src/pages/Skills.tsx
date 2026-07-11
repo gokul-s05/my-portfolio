@@ -40,8 +40,9 @@ const Skills = () => {
   return (
     <>
     <Helmet>
-  <title>Skills | Gokul S | AWS Docker Kubernetes Terraform</title>
-  <meta name="description" content="Technical skills of Gokul S – AWS, Docker, Kubernetes, Terraform, Python, Jenkins, GitHub Actions, Prometheus, Grafana." />
+  <title>DevOps Skills | Gokul S Portfolio | AWS Docker Kubernetes Terraform</title>
+  <meta name="description" content="DevOps skills of Gokul S – AWS, Docker, Kubernetes, Terraform, Python, Jenkins, GitHub Actions, Prometheus, Grafana, showcased in his DevOps engineer portfolio." />
+  <link rel="canonical" href="https://gokul-s-portfolio.vercel.app/skills" />
 </Helmet>
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

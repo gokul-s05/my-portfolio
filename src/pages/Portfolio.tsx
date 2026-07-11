@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import { ArrowDown, Download, Calendar, MapPin, Github, Mail, Phone, Send, X, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -457,6 +458,13 @@ const [typedCommand, setTypedCommand] = useState('');
   ];
 
   return (
+    <>
+    <Helmet>
+      <title>Gokul S | DevOps Engineer Portfolio</title>
+      <meta name="description" content="Gokul S DevOps Portfolio — DevOps Engineer from Tamil Nadu, India specialized in AWS, Kubernetes, Docker, Terraform and CI/CD pipelines. Explore Gokul's DevOps projects, skills and resume." />
+      <meta name="keywords" content="Gokul portfolio, Gokul S portfolio, DevOps portfolio, DevOps Engineer portfolio, AWS, Kubernetes, Docker, Terraform, CI/CD" />
+      <link rel="canonical" href="https://gokul-s-portfolio.vercel.app/" />
+    </Helmet>
     <div className="w-full">
       {/* Home Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -475,6 +483,16 @@ const [typedCommand, setTypedCommand] = useState('');
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
+            <motion.p
+              className="uppercase tracking-widest text-sm sm:text-base text-primary/80 font-semibold mb-4"
+              initial={{ opacity: 0, y: -10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+            >
+              DevOps Engineer Portfolio
+            </motion.p>
+
             <motion.h1
               className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 gradient-text"
               initial={{ opacity: 0, scale: 0.5 }}
@@ -511,7 +529,7 @@ const [typedCommand, setTypedCommand] = useState('');
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Passionate DevOps Engineer skilled in cloud infrastructure, CI/CD automation, containerization using Docker & Kubernetes, and AWS services — building scalable, reliable systems with modern DevOps tools.
+              Passionate DevOps Engineer skilled in cloud infrastructure, CI/CD automation, containerization using Docker & Kubernetes, and AWS services — welcome to my DevOps portfolio, where I build scalable, reliable systems with modern DevOps tools.
 
             </motion.p>
 
@@ -582,7 +600,7 @@ const [typedCommand, setTypedCommand] = useState('');
               About Me
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Get to know the person behind the code
+              Get to know the DevOps Engineer behind this portfolio
             </p>
           </motion.div>
 
@@ -605,7 +623,7 @@ const [typedCommand, setTypedCommand] = useState('');
 >
   <img
     src={getPublicAssetUrl('images/gokul.webp')}
-    alt="Gokul - Profile"
+    alt="Gokul S - DevOps Engineer profile photo"
     className="w-full h-full rounded-full object-cover select-none"
     draggable="false"
     onContextMenu={(e) => e.preventDefault()}
@@ -707,7 +725,7 @@ const [typedCommand, setTypedCommand] = useState('');
               Skills & Expertise
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-center">
-              Technologies and tools I work with
+              DevOps tools and cloud technologies I work with
             </p>
           </motion.div>
 
@@ -753,7 +771,7 @@ const [typedCommand, setTypedCommand] = useState('');
                   <CardContent className="p-3 sm:p-6 flex flex-col items-center">
   <img
     src={skill.icon}
-    alt={skill.name}
+    alt={`${skill.name} icon - DevOps skill`}
     className="w-9 h-9 sm:w-12 sm:h-12 mb-2 sm:mb-4 object-contain"
     loading="lazy"
   />
@@ -784,7 +802,7 @@ const [typedCommand, setTypedCommand] = useState('');
   My Projects
 </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-center">
-              A collection of projects that showcase my skills and passion for development
+              A collection of DevOps and cloud infrastructure projects that showcase my skills in AWS, Kubernetes, Docker and Terraform
             </p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -866,7 +884,7 @@ const [typedCommand, setTypedCommand] = useState('');
                   <div className="relative overflow-hidden">
                     <motion.img
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} - DevOps project by Gokul S`}
                       className="w-full h-64 object-cover"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.3 }}
@@ -1086,7 +1104,7 @@ const [typedCommand, setTypedCommand] = useState('');
                   <div className="relative">
                     <motion.img
   src={cert.image}
-  alt={cert.title}
+  alt={`${cert.title} - Gokul S certification`}
   className="w-full h-20 sm:h-56 md:h-64 object-contain bg-secondary/20 p-1.5 sm:p-6 cursor-zoom-in select-none"
 
   whileHover={{ scale: 1.02 }}
@@ -1430,6 +1448,7 @@ transition={{
         </div>
       </section>
     </div>
+    </>
   );
 };
 

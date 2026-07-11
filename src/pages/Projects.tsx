@@ -109,8 +109,9 @@ const Projects = () => {
   return (
     <>
     <Helmet>
-  <title>Projects | Gokul S DevOps Portfolio</title>
-  <meta name="description" content="DevOps projects by Gokul S – AWS EKS autoscaling, CI/CD pipelines, Kubernetes deployments, Football Analytics and more." />
+  <title>DevOps Projects | Gokul S Portfolio</title>
+  <meta name="description" content="DevOps portfolio projects by Gokul S – AWS EKS autoscaling, CI/CD pipelines, Kubernetes deployments, Terraform infrastructure, Football Analytics and more." />
+  <link rel="canonical" href="https://gokul-s-portfolio.vercel.app/projects" />
 </Helmet>
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,10 +121,10 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h1 className="text-4xl sm:text-5xl font-bold mb-6 gradient-text">
-            My Projects
+            DevOps Portfolio Projects
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A collection of projects that showcase my skills and passion for development
+            A collection of DevOps and cloud infrastructure projects by Gokul S that showcase AWS, Kubernetes, Docker and CI/CD skills
           </p>
         </motion.div>
 
@@ -140,7 +141,7 @@ const Projects = () => {
                 <div className="relative overflow-hidden">
                   <motion.img
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - DevOps project by Gokul S`}
                     className="w-full h-48 object-cover"
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}
@@ -174,7 +175,7 @@ const Projects = () => {
                         Code
                       </a>
                     </Button>
-                  )                    {project.demo && (
+                    {project.demo && (
                       project.isCurrentSite ? (
                         <Button size="sm" className="w-full sm:flex-1 text-xs" disabled>
                           You are currently viewing this project

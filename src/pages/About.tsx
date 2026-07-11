@@ -22,8 +22,9 @@ const About = () => {
   return (
     <>
     <Helmet>
-  <title>About Gokul S | DevOps Engineer Tamil Nadu</title>
-  <meta name="description" content="Learn about Gokul S – DevOps Engineer from Tamil Nadu pursuing B.E Computer Science, specialized in AWS, Kubernetes and cloud infrastructure." />
+  <title>About Gokul S | DevOps Engineer Portfolio | Tamil Nadu</title>
+  <meta name="description" content="About Gokul S – DevOps Engineer from Tamil Nadu pursuing B.E Computer Science, specialized in AWS, Kubernetes and cloud infrastructure. Read the story behind this DevOps portfolio." />
+  <link rel="canonical" href="https://gokul-s-portfolio.vercel.app/about" />
 </Helmet>
     
     <div className="min-h-screen pt-24 pb-16">
@@ -36,10 +37,10 @@ const About = () => {
         >
           <motion.div variants={itemVariants} className="text-center">
             <h1 className="text-4xl sm:text-5xl font-bold mb-6 gradient-text">
-              About Me
+              About Gokul S — DevOps Engineer
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Get to know the person behind the code
+              Get to know the person behind this DevOps portfolio
             </p>
           </motion.div>
 
@@ -56,7 +57,7 @@ const About = () => {
 >
   <img
     src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=400&fit=crop&crop=face"
-    alt="Profile"
+    alt="Gokul S - DevOps Engineer profile photo"
     className="w-full h-full rounded-full object-cover select-none"
     draggable="false"
     onContextMenu={(e) => e.preventDefault()}

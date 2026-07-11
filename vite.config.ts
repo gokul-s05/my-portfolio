@@ -10,14 +10,7 @@ export default defineConfig({
     Sitemap({
       hostname: 'https://gokul-s-portfolio.vercel.app',
       dynamicRoutes: [
-        '/',
-        '/about',
-        '/projects',
-        '/skills',
-        '/contact',
-        '/resume',
-        '/articles',
-        '/coding-profiles'
+        '/'
       ]
     })
   ],

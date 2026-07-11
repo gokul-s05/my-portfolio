@@ -71,8 +71,9 @@ const Resume = () => {
   return (
     <>
     <Helmet>
-  <title>Resume | Gokul S | DevOps Engineer</title>
-  <meta name="description" content="Resume of Gokul S – DevOps Engineer with internship experience at Besant Technologies, SkillCraft, Rinex and JRM Infotech." />
+  <title>Resume | Gokul S DevOps Engineer Portfolio</title>
+  <meta name="description" content="Resume of Gokul S – DevOps Engineer with internship experience at Besant Technologies, SkillCraft, Rinex and JRM Infotech. Part of the Gokul S DevOps portfolio." />
+  <link rel="canonical" href="https://gokul-s-portfolio.vercel.app/resume" />
 </Helmet>
     <div className="min-h-screen pt-24 pb-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
