@@ -29,14 +29,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.p
-            className="uppercase tracking-widest text-sm sm:text-base text-primary/80 font-semibold mb-4"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            DevOps Engineer Portfolio
-          </motion.p>
+        
 
           <motion.h1
             className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 gradient-text"

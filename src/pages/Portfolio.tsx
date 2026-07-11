@@ -483,15 +483,7 @@ const [typedCommand, setTypedCommand] = useState('');
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.p
-              className="uppercase tracking-widest text-sm sm:text-base text-primary/80 font-semibold mb-4"
-              initial={{ opacity: 0, y: -10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-            >
-              DevOps Engineer Portfolio
-            </motion.p>
+            
 
             <motion.h1
               className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 gradient-text"
