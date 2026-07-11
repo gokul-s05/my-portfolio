@@ -8,10 +8,7 @@ export default defineConfig({
   plugins: [
     react(),
     Sitemap({
-      hostname: 'https://gokul-s-portfolio.vercel.app',
-      dynamicRoutes: [
-        '/'
-      ]
+      hostname: 'https://gokul-s-portfolio.vercel.app'
     })
   ],
   server: {
