@@ -262,7 +262,7 @@ const Portfolio = () => {
     school: 'Anna University',
     period: '2022 - 2026',
     location: 'Hosur, Tamil Nadu',
-    score: 'CGPA: 7.80/10 (till 7th sem)'
+    score: 'CGPA: 8.05/10'
   },
   {
     degree: 'Computer Science',
@@ -275,7 +275,7 @@ const Portfolio = () => {
 
   const experience = [
     {
-      title: 'DevOps Engineer Intern',
+      title: 'Cloud Computing Intern',
       company: 'Besant Technologies',
       period: '6 month',
       location: 'Bangalore, Karnataka',
