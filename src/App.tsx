@@ -22,9 +22,9 @@ const App = () => (
           <Layout>
             <Portfolio />
           </Layout>
-        </BrowserRouter>
-        <Analytics />
+          <Analytics />
         <SpeedInsights />
+        </BrowserRouter>
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
