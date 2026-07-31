@@ -280,9 +280,9 @@ const Portfolio = () => {
       period: '6 month',
       location: 'Bangalore, Karnataka',
       achievements: [
-        'Gained hands-on experience with AWS core services including cloud infrastructure setup, deployment, and management.',
-        'Worked with Docker and Kubernetes for containerization and orchestration of cloud-based applications.',
-        'Developed proficiency in Linux administration for server management, shell scripting, and cloud environment configuration.'
+        'Gained hands-on experience configuring AWS core services (EC2, VPC, S3, IAM) for infrastructure setup, deployment, and management.',
+        'Containerized and orchestrated applications using Docker and Kubernetes in a training environment.',
+        'Practiced Linux server administration and shell scripting for environment configuration and automation'
       ]
     },
     {
