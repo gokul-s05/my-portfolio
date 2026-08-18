@@ -275,8 +275,7 @@ const Portfolio = () => {
 
   const experience = [
     {
-      title: 'Cloud Computing Intern',
-      company: 'Besant Technologies',
+title: 'Cloud & DevOps Intern',      company: 'Besant Technologies',
       period: '6 month',
       location: 'Bangalore, Karnataka',
       achievements: [
