@@ -192,11 +192,11 @@ const Portfolio = () => {
       github: 'https://github.com/gokul-s05/eks-devops-project',
     },
     {
-      title: 'AWS EKS CI/CD Platform ⚙️',
-      description: 'Built a production-grade EKS platform with fully automated CI/CD pipeline for Docker image builds, ECR pushes, and zero-downtime Kubernetes deployments with real-time monitoring.',
-      image: getPublicAssetUrl('images/eks.webp'),
-      tech: ['Grafana', 'Prometheus', 'Helm', 'Docker','AWS ECR','Terraform'],
-      github: 'https://github.com/gokul-s05/eks-cicd-platform',
+      title: 'Secure Student Onboarding Data Pipeline 🔐',
+      description: 'A secure cloud-based data pipeline that validates student onboarding data, enforces business rules, scans for secrets, and automates quality gates.',
+      image: getPublicAssetUrl('images/secure onboarding.webp'),
+      tech: ['GCP', 'Terraform', 'Django Rest Framework', 'Gitleaks','BigQuery','Python'],
+      github: 'https://github.com/gokul-s05/secure-student-onboarding-pipeline',
     },
     {
       title: 'Three-Tier AWS Infrastructure 💻',
@@ -204,6 +204,13 @@ const Portfolio = () => {
       image: getPublicAssetUrl('images/tier.webp'),
       tech: ['Terraform', 'AWS VPC', 'AWS EC2', 'RDS','Secret Manager','ALB'],
       github: 'https://github.com/gokul-s05/three-tier-aws-terraform',
+    },
+    {
+      title: 'AWS EKS CI/CD Platform ⚙️',
+      description: 'Built a production-grade EKS platform with fully automated CI/CD pipeline for Docker image builds, ECR pushes, and zero-downtime Kubernetes deployments with real-time monitoring.',
+      image: getPublicAssetUrl('images/eks.webp'),
+      tech: ['Grafana', 'Prometheus', 'Helm', 'Docker','AWS ECR','Terraform'],
+      github: 'https://github.com/gokul-s05/eks-cicd-platform',
     },
     {
       title: 'Football Analytics Platform ⚽',
